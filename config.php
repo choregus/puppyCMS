@@ -4,17 +4,27 @@
 #
 ### change the variables here to ensure your content is secure.
 
-$site_name = "your site"; # e.g. Steve's Site
+$site_name = "My site"; # e.g. Steve's Site
 $editor_file = "editor.php"; # name of your editor file - REMEMBER to change the actual file name in the 'content' folder
 
 # Needed to add/edit/delete pages
 $username = "admin";
-$password = "password"; # PLEASE change this!
+$password = "pass"; # PLEASE change this!
 
 # Change theme
-$theme = "journal"; # choose from spruce, simplex, amelia, cerulean, cyborg, journal, readable, slate, spacelab, superhero and united. See what they look like at strapdownjs.com
+$theme = "united"; # choose from spruce, simplex, amelia, cerulean, cyborg, journal, readable, slate, spacelab, superhero and united. See what they look like at strapdownjs.com
 
-$show_edit = 0; # if set to 1, then show Admin link in side bar.
+$show_edit = 1; # if set to 1, then show Admin link in side bar.
+$show_form = 0; # if set to 1, then show an enquiry form in side bar.
+$show_slider = 0; # if set to 1, then show content slider on home page.
+
+	# if you do want to show a slider on the home page, put content (such as an image url, or a paragraph of text) in each $slide(x) variable. Max 5. Images must all be the same size.
+	$slide[0] = "";
+	$slide[1] = "";
+	$slide[2] = "";
+	$slide[3] = "";
+	$slide[4] = "";
+
 
 #####################################################################################
 ### the stuff below is more geeky stuff, so only play with it if you know what you're doing!

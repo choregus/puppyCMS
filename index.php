@@ -3,15 +3,35 @@
 <html>
 <head>
 <title><?php echo $title ? $title : $default_title; ?></title>
+<?php if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == "/") { #show if slider selected  ?><link rel="stylesheet" href="/extras/rs/responsiveslides.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/extras/rs/responsiveslides.min.js"></script><?php } # end of slider if section ?>
 </head>
 <body>
 <xmp theme="<?php echo $bootswatch_theme; ?>" style="display:none;">
+<?php if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == "/") { # show the slideshow if its been set in config  ?>
+<ul class="rslides">
+<?php
+# loop through the slides for the slideshow
+foreach ($slide as $value) {
+  if ($value <> "") {
+		echo "<li>$value</li>";
+										}
+													}
+?>
+</ul>
+<?php } ?>
+
 <div class="row">
 <div class="span9">
 <?php echo $content; ?>
 </div>
 <div class="span3">
 <?php
+#show a contact form #beta
+#include('extras/form/form-input.html');
+	
+if ($show_form == 1) {include('extras/form/form-input.html');} # show enquiry form if selected
 //show the list of files in the content directory
 $files = array();
 $dir = opendir(CONTENT_DIR);
@@ -40,5 +60,14 @@ echo "</ul>\n";
 </div>
 </div>
 <script src="<?php echo $strapdown_location; ?>"></script>
+	<?php if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == "/") {  #show if slider selected ?><script>
+  $(function() {
+    $(".rslides").responsiveSlides({
+			
+		
+			
+		});
+  });
+</script><?php } # end of slider if section ?>
 </body>
 </html>
