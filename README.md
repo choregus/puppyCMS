@@ -13,7 +13,7 @@ See the homepage here: http://puppycms.com/
 * Tiny code
 * Takes a few seconds to install and configure
 * Fully responsive
-* Smart template system (using [bootstrap](http://getbootstrap.com/) )
+* Smart template system (using [bootstrap](http://getbootstrap.com/))
 * Works in all browsers
 * Uses Markdown to edit pages
 * Much easier than 95% of flat file CMS
@@ -22,8 +22,4 @@ If you want to make simple static content sites in very quick time, then puppyCM
 
 puppyCMS uses strapdown.js to convert it's easy markdown language into HTML, with themes also provided by strapdown.js/bootswatch.
 
-<<<<<<< HEAD
 puppyCMS also uses the excellent [Responsive Slides](https://github.com/viljamis/ResponsiveSlides.js) slider for additional functionality if required.
-=======
-puppyCMS also uses the excellent [Responsive Slides](https://github.com/viljamis/ResponsiveSlides.js) slider for additional functionality if required.
->>>>>>> b8e5785cec2d346bbfe75585f235c3b812e36797
