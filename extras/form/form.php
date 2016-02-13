@@ -1,12 +1,14 @@
 <?php
 
+include('../../config.php');
+
 // Get values from form
 $name=$_POST['name'];
 $phone=$_POST['phone'];
 $email=$_POST['email'];
 $message=$_POST['message'];
 
-$to = "salescoachworld@gmail.com";
+$to = $form_email;
 $subject = "Email Enquiry from $name";
 $message = " Name: " . $name . "\r\n Phone: " . $phone . "\r\n Email: " . $email . "\r\n Message: ". $message;
 
