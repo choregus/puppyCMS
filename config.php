@@ -5,11 +5,6 @@
 ### change the variables here to ensure your content is secure.
 
 $site_name = "My site"; # e.g. Steve's Site
-$editor_file = "editor.php"; # name of your editor file - REMEMBER to change the actual file name in the 'content' folder
-
-# Needed to add/edit/delete pages
-$username = "admin";
-$password = "pass"; # PLEASE change this!
 
 # Change theme
 $theme = "united"; # choose from spruce, simplex, amelia, cerulean, cyborg, journal, readable, slate, spacelab, superhero and united. See what they look like at strapdownjs.com
