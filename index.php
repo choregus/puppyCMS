@@ -28,9 +28,18 @@ foreach ($slide as $value) {
 </div>
 <div class="span3">
 <?php
-#show a contact form #beta
-#include('extras/form/form-input.html');
-	
+# show social buttons if set in config
+if ($show_social == 1) {
+?>
+<div class="don-share" data-style="icons" data-bubbles="none" data-limit="3">
+  <div class="don-share-facebook"></div>
+  <div class="don-share-twitter"></div>
+  <div class="don-share-google"></div>
+  <div class="don-share-linkedin"></div>
+</div>
+<?php
+}
+# if form has been selected then show	
 if ($show_form == 1) {include('extras/form/form-input.html');} # show enquiry form if selected
 //show the list of files in the content directory
 $files = array();
@@ -68,6 +77,18 @@ echo "</ul>\n";
 			
 		});
   });
-</script><?php } # end of slider if section ?>
+</script><?php } # end of slider if section
+
+# javascript for social buttons
+if ($show_social == 1) {	
+	?>
+<script type="text/javascript"> 
+  (function() {
+    var dr = document.createElement('script');
+    dr.type = 'text/javascript'; dr.async = true;
+    dr.src = '//share.donreach.com/buttons.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dr);
+  })();
+</script><?php } # end of showing social icons ?>
 </body>
 </html>
