@@ -383,6 +383,9 @@ if (is_dir($dir)){
     closedir($dh);
 	?>
 	</table>
+	
+		puppyFileExplorer by James Welch - <a href="../editor/backup.php">Backup files to zip</a>.
+
     <?php
   }
 }
