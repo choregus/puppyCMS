@@ -119,7 +119,7 @@ if(!isset($_SESSION['session']))
 	<form action="#" method="post">
 	<table align="center">
 		<tr>
-			<td align="center"><input type="password" name="password" size="70" placeholder="Please enter password..." /></td>
+			<td align="center"><input type="password" name="password" size="70" placeholder="Enter password (or create if first time)" /></td>
 		</tr>
 		<tr>
 			<td align="center"><input type="submit" name="login" value="Login" /></td>
