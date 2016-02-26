@@ -65,7 +65,7 @@ foreach($files as $file) {
 	
 if ($show_edit == 1) {
 	
-	echo("<li><a href='".$site_root."content/'>Admin</a></li>\n");
+	echo("<li><a href='".$site_root."editor/'>Admin</a></li>\n");
 }
 	
 echo "</ul>\n";
