@@ -12,7 +12,6 @@ $to = $form_email;
 $subject = "Email Enquiry from $name";
 $message = " Name: " . $name . "\r\n Phone: " . $phone . "\r\n Email: " . $email . "\r\n Message: ". $message;
 
-
 $from = "enquiry";
 $headers = "From:" . $from . "\r\n";
 $headers .= "Content-type: text/plain; charset=UTF-8" . "\r\n"; 
