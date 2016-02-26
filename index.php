@@ -56,7 +56,7 @@ while(false != ($file = readdir($dir))) {
 
 natsort($files); // sort the files into name order.
 
-echo "<ul>\n<li><a href='/'>Home</a></li>\n";
+echo "<ul>\n<li><a href='".$site_root."'>Home</a></li>\n";
 foreach($files as $file) {
 	$page_name = ucwords(str_replace("-"," ",$file)); # take out hyphens for the page name.
         echo("<li><a href='$file'>$page_name</a></li>\n");
