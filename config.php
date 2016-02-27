@@ -14,7 +14,7 @@ $theme = "united"; # choose from spruce, simplex, amelia, cerulean, cyborg, jour
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
 
-$show_social = 1; # if set to 1, then show social share buttons in side bar.
+$show_social = 0; # if set to 1, then show social share buttons in side bar.
 $show_edit = 1; # if set to 1, then show Admin link in side bar.
 $show_form = 0; # if set to 1, then show an enquiry form in side bar.
 $show_slider = 0; # if set to 1, then show content slider on home page.
@@ -80,7 +80,7 @@ if ($display[1] != "") { $title = $display[1]; }
 if ($display[2] != "") { $meta_desc = '<meta name="description" content="'.$display[2].'">'; }
 
 // if 2 columns are requested, then show them
-if ($display[3] != "") { $columns = 1; }
+if ($display[3] != "") { $columns = $display[3]; }
 
 	
 // get the contents of the file

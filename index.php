@@ -4,10 +4,13 @@
 <head>
 <title><?php echo $title ? $title : $default_title; ?></title>
 <?php 
-if (isset($meta_desc)) {echo $meta_desc;} // show meta description
+if (isset($meta_desc)) {echo $meta_desc."\r\n";} // show meta description ?>
+<script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+<?php
 if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) { #show if slider selected  ?><link rel="stylesheet" href="<?php echo $site_root; ?>extras/rs/responsiveslides.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="<?php echo $site_root; ?>extras/rs/responsiveslides.min.js"></script><?php } # end of slider if section ?>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">
+<meta name="viewport" content="width=device-width,minimum-scale=1">
 </head>
 <body>
 <xmp theme="<?php echo $bootswatch_theme; ?>" style="display:none;">
@@ -24,13 +27,10 @@ foreach ($slide as $value) {
 </ul>
 
 <?php } ?>
+<a id="simple-menu" href="#sidr" style="font-size:2em;margin:10px;float:right;">&#9776;</a>
 <div class="row">
-<div class="span9"<?php if (isset($columns)) { ?> style="-webkit-column-width: 300px;-moz-column-width: 300px;column-width: 300px;"<?php } ?>>
-
+<div class="span12"<?php if ($columns == 2) { ?> style="-webkit-column-width: 500px;-moz-column-width: 500px;column-width: 500px;"<?php } elseif ($columns == 3) { ?> style="-webkit-column-width: 300px;-moz-column-width: 300px;column-width: 300px;"<?php }?>>
 <?php echo $content; ?>
-
-</div>
-<div class="span3">
 <?php
 # show social buttons if set in config
 if ($show_social == 1) {
@@ -41,8 +41,12 @@ if ($show_social == 1) {
   <div class="don-share-google"></div>
   <div class="don-share-linkedin"></div>
 </div>
+<?php } 
+?>
+</div>
+<div id="sidr">
 <?php
-}
+
 # if form has been selected then show	
 if ($show_form == 1) {include('extras/form/form-input.html');} # show enquiry form if selected
 //show the list of files in the content directory
@@ -55,8 +59,9 @@ while(false != ($file = readdir($dir))) {
 }
 
 natsort($files); // sort the files into name order.
-
-echo "<ul>\n<li><a href='".$site_root."'>Home</a></li>\n";
+?>
+<?php
+echo "<ul>\n<li><a href='$site_root'>Home</a></li>\n";
 foreach($files as $file) {
 	$page_name = ucwords(str_replace("-"," ",$file)); # take out hyphens for the page name.
         echo("<li><a href='$file'>$page_name</a></li>\n");
@@ -95,5 +100,11 @@ if ($show_social == 1) {
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dr);
   })();
 </script><?php } # end of showing social icons ?>
+<script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#simple-menu').sidr();
+});
+</script>
 </body>
 </html>
