@@ -18,6 +18,7 @@ $show_social = 0; # if set to 1, then show social share buttons in side bar.
 $show_edit = 1; # if set to 1, then show Admin link in side bar.
 $show_form = 0; # if set to 1, then show an enquiry form in side bar.
 $show_slider = 0; # if set to 1, then show content slider on home page.
+$better_fonts = 1; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :) 
 
 	# if you do want to show a slider on the home page, put content (such as an image url, or a paragraph of text) in each $slide(x) variable. Max 5. Images must all be the same size.
 	$slide[0] = "";

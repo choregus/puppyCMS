@@ -11,6 +11,7 @@ if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) { #show if slide
 <script src="<?php echo $site_root; ?>extras/rs/responsiveslides.min.js"></script><?php } # end of slider if section ?>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">
 <meta name="viewport" content="width=device-width,minimum-scale=1">
+<?php if ($better_fonts == 1) { ?><script src="extras/text.js"></script><?php } ?>
 </head>
 <body>
 <xmp theme="<?php echo $bootswatch_theme; ?>" style="display:none;">
@@ -103,9 +104,11 @@ if ($show_social == 1) {
 <script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
 <script>
 $(document).ready(function() {
-  $('#simple-menu').sidr({
-		side: 'right'
-	});
+  $('#simple-menu').sidr({side: 'right' });
+<?php if ($better_fonts == 1) { ?>	
+	$('.span12').flowtype({minimum   : 299, maximum   : 1500, minFont   : 16, maxFont   : 20, fontRatio : 30 });
+	$('ul').flowtype({minFont   : 16,maxFont   : 18, fontRatio : 30});
+<?php } ?>	
 });
 </script>
 </body>
