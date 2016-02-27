@@ -103,7 +103,9 @@ if ($show_social == 1) {
 <script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
 <script>
 $(document).ready(function() {
-  $('#simple-menu').sidr();
+  $('#simple-menu').sidr({
+		side: 'right'
+	});
 });
 </script>
 </body>
