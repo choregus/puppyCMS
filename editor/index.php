@@ -384,7 +384,7 @@ if (is_dir($dir)){
 	?>
 	</table>
 	
-	puppyFileExplorer by James Welch - <a href="backup.php">Backup files to zip</a>.
+	puppyFileExplorer by James Welch - <a href="backup.php">Backup files to zip</a> | Go back to <a href="../">your site</a>.
 	
     <?php
   }

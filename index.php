@@ -58,7 +58,8 @@ if ($show_social == 1) {
 </div>
 <?php } # end of showing social icons
 ?>
-<?php if ($menu_choice == 1) { ?></div><?php } # end menu choice ?>
+<?php if ($menu_choice == 1) { ?>
+</div><?php } # end menu choice ?>
 <?php if ($menu_choice == 1) { ?><div id="sidr"><?php } # end menu choice ?>
 <?php
 
@@ -87,19 +88,20 @@ if ($show_edit == 1) {
 	
 	echo("<li><a href='".$site_root."editor/'>Admin</a></li>\n");
 }
+
+ 	if ($puppy_link == 1) {
 	
+	echo("<li><a href='http://puppycms.com'>Built with puppyCMS</a></li>\n");
+}
 echo "</ul>\n";
 ?>
 </xmp>
 </div>
 </div>
-<script src="<?php echo $strapdown_location; ?>"></script>
+	<script src="<?php echo $strapdown_location; ?>"></script>
 	<?php if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) {  #show if slider selected ?><script>
   $(function() {
     $(".rslides").responsiveSlides({
-			
-		
-			
 		});
   });
 </script><?php } # end of slider if section

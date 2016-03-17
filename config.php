@@ -103,4 +103,6 @@ else $content = file_get_contents(CONTENT_DIR .'404' . $file_format);
 }
 
 
+# this is where I'm hiding :-)
+$puppy_link = 1; # if set to 1 then show link to puppy site. 
 ?>
