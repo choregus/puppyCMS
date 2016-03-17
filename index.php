@@ -115,7 +115,7 @@ if ($show_social == 1) {
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dr);
   })();
 </script><?php } # end of showing social icons ?>
-<script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
+<?php if ($menu_choice == 1) { ?><script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
 <script>
 $(document).ready(function() {
   $('#simple-menu').sidr({side: 'right' });
@@ -124,6 +124,7 @@ $(document).ready(function() {
 	$('ul').flowtype({minFont   : 16,maxFont   : 18, fontRatio : 30});
 <?php } ?>
 });
-</script>
+</script><?php } # end of menu choice ?>
+<!-- built with puppyCMS version 2.0 -->
 </body>
 </html>
