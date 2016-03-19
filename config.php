@@ -9,7 +9,7 @@ $site_name = "My Site"; # e.g. Steve's Site
 $site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
 # Change theme
-$theme = "united"; # choose from spruce, simplex, amelia, cerulean, cyborg, journal, readable, slate, spacelab, superhero and united. See what they look like at strapdownjs.com
+$theme = "puppy"; # default theme is uppy', but you can choose from spruce, simplex, amelia, cerulean, cyborg, journal, readable, slate, spacelab, superhero and united. See what they look like at strapdownjs.com
 
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
