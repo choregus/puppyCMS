@@ -28,6 +28,22 @@ $better_fonts = 1; # if set to 1, then better-sized fonts will be used depending
 	$slide[3] = "";
 	$slide[4] = "";
 
+# if you would like to make quicker changes to the css, rather than editing one of the css files (in strapdown/themes folder), you can put it here, which will add a <style> tag to the end of the page
+$style_tweaks = '';
+
+#example here:
+/*
+
+<style>
+body{margin:0;font-family:Palatino,Georgia,"Times New Roman",Times,serif;font-size:16px;line-height:1.4em;color:#282828;background-color:#ffffff;}
+h1,h2,h3{color: #9c0001;font-family:Arial,Georgia,"Times New Roman",Times,serif;}
+a{color:#9c0001;text-decoration:underline;}
+a:hover{color:#000000;text-decoration:none;}
+.navbar-fixed-top{background-color:blue;color:white;}
+</style>
+
+*/
+
 #####################################################################################
 ### the stuff below is more geeky stuff, so only play with it if you know what you're doing!
 

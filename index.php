@@ -127,6 +127,8 @@ $(document).ready(function() {
 <?php } ?>
 });
 </script><?php } # end of menu choice ?>
+	
+<?php if ($style_tweaks <> "") { echo $style_tweaks;	} ?>
 <!-- built with puppyCMS version 2.0 -->
 </body>
 </html>
