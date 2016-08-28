@@ -128,7 +128,12 @@ $(document).ready(function() {
 });
 </script><?php } # end of menu choice ?>
 	
-<?php if ($style_tweaks <> "") { echo $style_tweaks;	} ?>
+<?php 
+# include custom styles if they have been used
+	if ($style_tweaks <> "") { echo $style_tweaks;	} ?>
+<?php 
+# record web stats if it has been selected in config file.	
+	if ($web_stats = 1) { include('extras/stats/stl.php'); } ?>
 <!-- built with puppyCMS version 2.0 -->
 </body>
 </html>
