@@ -1,3 +1,5 @@
+# This file is here incase your computer didn't download the .htaccess file.
+# Simply rename this to .htaccess if that is the case.
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f

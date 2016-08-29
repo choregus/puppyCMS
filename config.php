@@ -23,7 +23,7 @@ $web_stats = 0; # if set to 1, then web visitors will be recorded. You can view 
 
 # parallax scrolling?
 $parallax = 0; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
-# example <p class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="path/to/inage.jpg" style="min-height:200px;" >Some content here if you like.</p>
+# example <p class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="path/to/image.jpg" style="min-height:200px;" >Some content here if you like.</p>
 # see more at: http://pixelcog.github.io/parallax.js/
 
 $show_slider = 0; # if set to 1, then show content slider on home page.
