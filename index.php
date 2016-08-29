@@ -1,4 +1,4 @@
-<?php include('config.php'); $columns =""; ?>
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +6,9 @@
 <?php
 if (isset($meta_desc)) {echo $meta_desc."\r\n";} // show meta description ?>
 <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+<?php 
+# include parallax js if selected in config file.	
+	if ($parallax = 1) { echo '<script src="extras/parallax.min.js"></script>'; } ?>
 <?php
 if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) { #show if slider selected  ?><link rel="stylesheet" href="<?php echo $site_root; ?>extras/rs/responsiveslides.css">
 <script src="<?php echo $site_root; ?>extras/rs/responsiveslides.min.js"></script><?php } # end of slider if section ?>
@@ -13,7 +16,6 @@ if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) { #show if slide
 
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <?php if ($better_fonts == 1) { ?><script src="extras/text.js"></script><?php } ?>
-
 </head>
 <body>
 <xmp theme="<?php echo $bootswatch_theme; ?>" style="display:none;">
@@ -98,6 +100,7 @@ echo "</ul>\n";
 </xmp>
 </div>
 </div>
+
 	<script src="<?php echo $strapdown_location; ?>"></script>
 	<?php if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) {  #show if slider selected ?><script>
   $(function() {
@@ -121,13 +124,13 @@ if ($show_social == 1) {
 <script>
 $(document).ready(function() {
   $('#simple-menu').sidr({side: 'right' });
-<?php if ($better_fonts == 1) { ?>
+<?php if ($better_fonts == 1) { # this uses /extras/text.js to produce fonts that fit the page much better. recommended to turn it on in config.php ?>
 	$('.span12').flowtype({minimum   : 299, maximum   : 1500, minFont   : 16, maxFont   : 20, fontRatio : 30 });
 	$('ul').flowtype({minFont   : 16,maxFont   : 18, fontRatio : 30});
 <?php } ?>
 });
 </script><?php } # end of menu choice ?>
-	
+
 <?php 
 # include custom styles if they have been used
 	if ($style_tweaks <> "") { echo $style_tweaks;	} ?>

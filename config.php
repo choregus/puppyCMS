@@ -4,30 +4,36 @@
 #
 ### change the variables here to ensure your content is secure.
 
-$site_name = "My Site"; # e.g. Steve's Site
+$site_name = "My New Puppy Site"; # e.g. Steve's Site
 
 $site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
 # Change theme
-$theme = "puppy"; # default theme is uppy', but you can choose from spruce, simplex, amelia, cerulean, cyborg, journal, readable, slate, spacelab, superhero and united. See what they look like at strapdownjs.com
+$theme = "puppy"; # default theme is puppy', but you can choose from spruce, simplex, amelia, cerulean, cyborg, journal, readable, slate, spacelab, superhero and united. See what they look like at strapdownjs.com
 
 # email for forms - this is the email your enquiries will go to.
-$form_email = "your@email.com";
+$form_email = "your_email@gmail_or_something.com";
 
-$menu_choice = 1; # if set to 1, then show hamburger menu option. 0 will display typical menu.
-$show_social = 1; # if set to 1, then show social share buttons in side bar.
-$show_edit = 1; # if set to 1, then show Admin link in side bar.
+$menu_choice = 0; # if set to 1, then show hamburger menu option. 0 will display typical menu that is visible on right of page.
+$show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
+$show_edit = 0; # if set to 1, then show Admin link in side bar.
 $show_form = 0; # if set to 1, then show an enquiry form in side bar.
-$show_slider = 0; # if set to 1, then show content slider on home page.
 $better_fonts = 1; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :)
-$web_stats = 0; # if set to 1, then web visitors will be recorded. You can view stats in yoursite/extras/stats
+$web_stats = 0; # if set to 1, then web visitors will be recorded. You can view stats in yoursite.com/extras/stats
 
-	# if you do want to show a slider on the home page, put content (such as an image url, or a paragraph of text) in each $slide(x) variable. Max 5. Images must all be the same size.
+# parallax scrolling?
+$parallax = 0; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
+# example <p class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="path/to/inage.jpg" style="min-height:200px;" >Some content here if you like.</p>
+# see more at: http://pixelcog.github.io/parallax.js/
+
+$show_slider = 0; # if set to 1, then show content slider on home page.
+# if you do want to show a slider on the home page, put content (such as an image url, or a paragraph of text) in each $slide(x) variable. Max 5. Images must all be the same size.
 	$slide[0] = "";
 	$slide[1] = "";
 	$slide[2] = "";
 	$slide[3] = "";
 	$slide[4] = "";
+	$slide[5] = "";
 
 # if you would like to make quicker changes to the css, rather than editing one of the css files (in strapdown/themes folder), you can put it here, which will add a <style> tag to the end of the page
 $style_tweaks = '';
