@@ -17,6 +17,10 @@ See the homepage here: http://puppycms.com/
 * Works in all browsers
 * Uses Markdown to edit pages
 * Much easier than 95% of flat file CMS
+* Built in slider option
+* Built in simple web stats
+* Built in parallax scrolling effects
+* Multiple columns
 
 If you want to make simple static content sites in very quick time, then puppyCMS is the CMS for you. It is perfect for creating hobby sites, or micro sites, and with the 11 templates included, you can produce very smart, content-rich sites in no time.
 
