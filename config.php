@@ -4,22 +4,21 @@
 #
 ### change the variables here to ensure your content is secure.
 
-$site_name = "My New Puppy Site"; # e.g. Steve's Site
+$site_name = "My Site"; # e.g. Steve's Site
 
 $site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
 # Change theme
-$theme = "puppy"; # default theme is puppy', but you can choose from spruce, simplex, amelia, cerulean, cyborg, journal, readable, slate, spacelab, superhero and united. See what they look like at strapdownjs.com
+$theme = "puppy"; # default theme is puppy. You can choose from puppy, puppy-black, campfire, teye, sunglasses (more to come).
 
 # email for forms - this is the email your enquiries will go to.
-$form_email = "your_email@gmail_or_something.com";
+$form_email = "your@email.com";
 
-$menu_choice = 0; # if set to 1, then show hamburger menu option. 0 will display typical menu that is visible on right of page.
 $show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
 $show_edit = 0; # if set to 1, then show Admin link in side bar.
 $show_form = 0; # if set to 1, then show an enquiry form in side bar.
 $better_fonts = 1; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :)
-$web_stats = 0; # if set to 1, then web visitors will be recorded. You can view stats in yoursite.com/extras/stats
+$web_stats = 1; # if set to 1, then web visitors will be recorded. You can view stats in yoursite.com/extras/stats
 
 # parallax scrolling?
 $parallax = 0; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
@@ -35,34 +34,19 @@ $show_slider = 0; # if set to 1, then show content slider on home page.
 	$slide[4] = "";
 	$slide[5] = "";
 
-# if you would like to make quicker changes to the css, rather than editing one of the css files (in strapdown/themes folder), you can put it here, which will add a <style> tag to the end of the page
-$style_tweaks = '';
 
-#example here:
-/*
-
-<style>
-body{margin:0;font-family:Palatino,Georgia,"Times New Roman",Times,serif;font-size:16px;line-height:1.4em;color:#282828;background-color:#ffffff;}
-h1,h2,h3{color: #9c0001;font-family:Arial,Georgia,"Times New Roman",Times,serif;}
-a{color:#9c0001;text-decoration:underline;}
-a:hover{color:#000000;text-decoration:none;}
-.navbar-fixed-top{background-color:blue;color:white;}
-</style>
-
-*/
+# if you would like to make quicker changes to the css, rather than editing one of the css files you can put it here, which will add a <style> tag to the end of the page
+$style_tweaks = '<style></style>';
 
 #####################################################################################
 ### the stuff below is more geeky stuff, so only play with it if you know what you're doing!
 
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
 
-$strapdown_location = $site_root."strapdown/strapdown.js";
-# alternative is: "http://strapdownjs.com/v/0.2/strapdown.js"
-
 define('CONTENT_DIR', ROOT_DIR. '/content/'); // change this to change which folder you want your content to be stored in. too many things rely on this, so leave.
 
+# if no title has been added, then use site name.
 $default_title = $site_name;
-$bootswatch_theme = $theme; // choose any bootstrap theme included in strapdown.js!
 
 $file_format = ".txt"; // do not change this whatsoever
 
@@ -85,7 +69,7 @@ else $file .=  $file_format;
 # make the title tag human-readable
 $title = ucwords(str_replace("-"," ",$url));
 
-############################################## all below is instructions at the top of pages ###################################
+############################################## all below is instructions at the top of each page (title, desc etc) ###################################
 
 # grab the first line of the file, to see if it has any instructions in it.
 $first_line = fgets(fopen($file, 'r'));

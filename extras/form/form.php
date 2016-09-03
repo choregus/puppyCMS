@@ -9,10 +9,10 @@ $email=$_POST['email'];
 $message=$_POST['message'];
 
 $to = $form_email;
-$subject = "Email Enquiry from $name";
+$subject = "Email Enquiry from $name on $site_name";
 $message = " Name: " . $name . "\r\n Phone: " . $phone . "\r\n Email: " . $email . "\r\n Message: ". $message;
 
-$from = "enquiry";
+$from = "form-enquiry";
 $headers = "From:" . $from . "\r\n";
 $headers .= "Content-type: text/plain; charset=UTF-8" . "\r\n"; 
 

@@ -37,7 +37,7 @@ $(document).ready(function() {
 	</script>      
 </head>
   <body>
-    
+    		
     <?php $yesterday = "cy_archive[".date('Y-m-d')."].csv"; # get the date so we can dynamically load yesterday's log file. ?>
     
     <h1>Today's Visitors</h1>
@@ -72,11 +72,15 @@ if ($header) {
 }
 // displaying contents
 	
+		#block your own IP address from being tracked?
+		# if so, simply enter it below.
+		$my_ip = "86.9.251.183";
+
 	
 while ($csvcontents = fgetcsv($handle)) {
   
   #tidy up the display by removing erroneous things that puppy causes (and favicon.ico thing, which may need removing)
-  if ( strpos($csvcontents[4],'edit') || strpos($csvcontents[4],'extras')  || strpos($csvcontents[10],'favicon') !== false )  { 
+  if ( strpos($csvcontents[4],'edit') || strpos($csvcontents[4],'extras')  || strpos($csvcontents[10],'favicon')  || strpos($csvcontents[2],$my_ip) !== false )  { 
   } else {
 		
 		# for use with looking for previous array	
