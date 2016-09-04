@@ -1,29 +1,32 @@
 # puppyCMS
-pupyCMS is a very simple, flat file CMS that is SEO friendly and responsive - built in PHP (minimum requirements are PHP 5). It takes a few seconds to configure (just one config file). It works on all major browsers including mobile versions.
+pupyCMS is a very simple, flat file CMS that is SEO friendly and responsive - built in PHP (minimum requirements are PHP 5.2). It takes a few seconds to configure (just one config file). It works on all major browsers including mobile versions. It is absolutely mobile first.
 
-The biggest difference between puppyCMS and other flat file, responsive content management platforms is that its very small, takes seconds to start, uses markdown for easy editing and uses [strapdown.js](http://strapdownjs.com) to produce HTML and templates. [jQuery](http://jquery.com) is used if additional functionality is required.
+The biggest difference between puppyCMS and other flat file, responsive content management platforms is that its **very** small, takes seconds to start. It uses purecss.io and parsedown.org to produce wonderfully lightweight web pages. You use markdown to write the content and it outputs in bloat-free html.
 
-You can create smart looking micro sites with ease, but if you want to extend them into full sites, then a bit of messing with HTML, maybe some PHP and you can have fully-fledged websites too - very SEO friendly.
+[jQuery](http://jquery.com) is used if additional functionality is required.
+
+You can create smart looking micro sites with ease, but if you want to extend them into full sites, then a bit of fiddling with HTML, maybe some PHP and you can have fully-fledged websites too - very SEO friendly.
 
 See the homepage here: http://puppycms.com/
 
 ## Features
 
 * Flat file
-* Tiny code
+* Tiny (really tiny) code
 * Takes a few seconds to install and configure
+  * Just FTP and it's ready to start.
 * Fully responsive
-* Smart template system (using [bootstrap](http://getbootstrap.com/))
+* Smart template system
 * Works in all browsers
 * Uses Markdown to edit pages
 * Much easier than 95% of flat file CMS
 * Built in slider option
 * Built in simple web stats
 * Built in parallax scrolling effects
-* Multiple columns
+* Multiple columns output
 
-If you want to make simple static content sites in very quick time, then puppyCMS is the CMS for you. It is perfect for creating hobby sites, or micro sites, and with the 11 templates included, you can produce very smart, content-rich sites in no time.
-
-puppyCMS uses strapdown.js to convert it's easy markdown language into HTML, with themes also provided by strapdown.js/bootswatch.
+If you want to make simple static content sites in very quick time, then puppyCMS is the CMS for you. It is perfect for creating hobby sites, or micro sites, and with the templates included, you can produce very smart, content-rich sites in no time.
 
 puppyCMS also uses the excellent [Responsive Slides](https://github.com/viljamis/ResponsiveSlides.js) slider for additional functionality if required.
+
+Puppy version 3.0, the latest release, is now only 67k in size, but does the same job as other CMS systems that are at least 10 times the size.
