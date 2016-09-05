@@ -40,7 +40,7 @@ echo $Parsedown->text($content);
 $files = array();
 $dir = opendir(CONTENT_DIR);
 while(false != ($file = readdir($dir))) {
-        if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "index.txt") and (strpos($file, 'txt') !== false)) {
+        if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
 						$files[] = str_replace(".txt","",$file); // put in array.
         }
 }
