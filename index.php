@@ -36,16 +36,6 @@ foreach ($slide as $value) {
 $Parsedown = new Parsedown();
 echo $Parsedown->text($content);
 
-//show the list of files in the content directory
-$files = array();
-$dir = opendir(CONTENT_DIR);
-while(false != ($file = readdir($dir))) {
-        if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
-						$files[] = str_replace(".txt","",$file); // put in array.
-        }
-}
-
-natsort($files); // sort the files into name order.
 ?>
 
 <!-- Menu toggle -->
@@ -61,11 +51,42 @@ if ($show_form == 1) {include('extras/form/form-input.html');} # show enquiry fo
 <ul class="pure-menu-list">
 <?php
 echo "<li class=\"pure-menu-item\"><a href='$site_root'>Home</a></li>\n";
+	
+######## site or blog mode - the following code block either lists the pages of the site in reverse time order (blog), or lists pages alphabetically (website)
+if($blog_mode == 1) {	
+# the stuff here is listing files in reverse order of time created - effectively a blog
+$dir = CONTENT_DIR;
+chdir($dir);
+array_multisort(array_map('filemtime', ($files = glob("*.txt"))), SORT_DESC, $files);
+foreach($files as $file)
+{
+			if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
+				$file = str_replace(".txt","",$file); // take off the extension
+		$page_name = ucwords(str_replace("-"," ",$file)); # take out hyphens for the page name.
+        echo("<li class=\"pure-menu-item\"><a href='$file'>".mb_substr($page_name,0,30)."</a></li>\n");
+										}
+			}	
+									} # end of blog mode
+							else { # show files of site in website mode (alphabetical)
+		
+		
+		#show the list of files in the content directory
+$files = array();
+$dir = opendir(CONTENT_DIR);
+while(false != ($file = readdir($dir))) {
+			if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
+						$files[] = str_replace(".txt","",$file); // put in array.
+
+        }
+}
+natsort($files); // sort the files into name order.
+	
 foreach($files as $file) {
 	$page_name = ucwords(str_replace("-"," ",$file)); # take out hyphens for the page name.
-        echo("<li class=\"pure-menu-item\"><a href='$file'>$page_name</a></li>\n");
-
-}
+     #   echo("<li class=\"pure-menu-item\"><a href='$file'>$page_name</a></li>\n");
+	        echo("<li class=\"pure-menu-item\"><a href='$file'>".mb_substr($page_name,0,30)."</a></li>\n");
+													} 		
+		}
 	
 if ($show_edit == 1) {
 	

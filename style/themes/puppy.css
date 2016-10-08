@@ -227,7 +227,7 @@ small screens.
 /*
 Hides the menu at `48em`, but modify this based on your app's needs.
 */
-@media (min-width: 200em) {
+@media (min-width: 100em) {
 
     .header,
     .content {
@@ -254,7 +254,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 }
 
-@media (max-width: 200em) {
+@media (max-width: 100em) {
     /* Only apply this when the window is small. Otherwise, the following
     case results in extra padding on the left:
         * Make the window small.

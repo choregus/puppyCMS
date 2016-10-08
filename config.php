@@ -14,6 +14,7 @@ $theme = "puppy"; # default theme is puppy. You can choose from puppy, puppy-bla
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
 
+$blog_mode = 0; # if set to 1, then pages are shown in menu in reverse time order. 0 lists pages alphabetically.
 $show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
 $show_edit = 0; # if set to 1, then show Admin link in side bar.
 $show_form = 0; # if set to 1, then show an enquiry form in side bar.
