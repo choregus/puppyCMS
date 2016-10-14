@@ -50,7 +50,7 @@ LICENSE
     $ss = "color: white;"; # text Span
 
     # Timezone
-    # date_default_timezone_set('Europe/London'); # Comment this out if you wish to use your server's time. Valid timezones are listed at http://www.php.net/manual/en/timezones.php
+     date_default_timezone_set('Europe/London'); # Comment this out if you wish to use your server's time. Valid timezones are listed at http://www.php.net/manual/en/timezones.php
 
     # Logging times
     # Set the cycle's start and end times to the same values to track visitors over 24 hour cycles

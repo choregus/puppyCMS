@@ -42,6 +42,8 @@ $style_tweaks = '<style></style>';
 #####################################################################################
 ### the stuff below is more geeky stuff, so only play with it if you know what you're doing!
 
+$columns = null; //to stop errors on some php servers
+
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
 
 define('CONTENT_DIR', ROOT_DIR. '/content/'); // change this to change which folder you want your content to be stored in. too many things rely on this, so leave.
