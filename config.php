@@ -6,7 +6,7 @@
 
 $site_name = "My Site"; # e.g. Steve's Site
 
-$site_root = "/puppy/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
+$site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
 # Change theme
 $theme = "puppy"; # default theme is puppy. You can choose from puppy, puppy-black, campfire, teye, sunglasses (more to come).
