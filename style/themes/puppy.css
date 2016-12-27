@@ -5,19 +5,10 @@
 Basic HTML entities styled here.
 */
 
-.box {
-    display: block;
-}
-
-.box_a:checked ~ #a, .box_b:checked ~ #b {
-    display: none;
-}
-
-
-body, p, ul, ol {
+body, p, ul, ol,div {
     color: #777;
 font-family: 'Average', serif;
-text-align:justify;
+text-align:left;
 
 }
 
@@ -30,12 +21,8 @@ h1, h2, h3, h4, h5, h6
 
 }
  
-ul, ol
-{
-}
- 
-p a{text-decoration:underline;color:#1F8DD6;padding-left:3px;padding-right:3px;}
-p a:hover {color: white; background-color: #1F8DD6;}
+a{text-decoration:underline;color:#1F8DD6;padding-left:3px;padding-right:3px;}
+a:hover {color: white; background-color: #1F8DD6;}
 
 blockquote {
   font-weight: bold;
@@ -43,7 +30,18 @@ blockquote {
 	border-left: 0.25em solid #e9e9e9;
 	padding: 0 1em 0 1em; /* 0 24px 0 16px */
 	}
+	
+/*
+Style images so they resize no matter what the browser size.
+*/
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* This is the color of the icons that you may use */
 .icon {fill: #1F8DD6;
 }
 
@@ -72,16 +70,6 @@ This is the main content area of the site.
     margin-bottom: 50px;
     margin-top: 20px;
     line-height: 1.6em;
-}
-
-/*
-Style images so they resize no matter what the browser size.
-*/
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
 }
 
 /*
@@ -282,4 +270,3 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         left: 250px;
     }
 }
-
