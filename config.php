@@ -6,7 +6,7 @@
 
 $site_name = "My Site"; # e.g. Steve's Site
 
-$site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
+$site_root = "/puppy/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
 # Change theme
 $theme = "puppy"; # default theme is puppy. You can choose from puppy, puppy-black, campfire, teye, sunglasses (more to come).
@@ -16,13 +16,14 @@ $form_email = "your@email.com";
 
 $blog_mode = 0; # if set to 1, then pages are shown in menu in reverse time order. 0 lists pages alphabetically.
 $show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
-$show_edit = 0; # if set to 1, then show Admin link in side bar.
+$show_edit = 1; # if set to 1, then show Admin link in side bar.
 $show_form = 0; # if set to 1, then show an enquiry form in side bar.
 $better_fonts = 1; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :)
-$web_stats = 1; # if set to 1, then web visitors will be recorded. You can view stats in yoursite.com/extras/stats
+$evil_icons = 1; # ability to use evil icons (MIT) for nice looking icons around the text - e.g. <div data-icon="ei-chart" data-size="s"></div>
+$web_stats = 0; # if set to 1, then web visitors will be recorded. You can view stats in yoursite.com/extras/stats
 
 # parallax scrolling?
-$parallax = 0; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
+$parallax = 1; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
 # example <p class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="path/to/image.jpg" style="min-height:200px;" >Some content here if you like.</p>
 # see more at: http://pixelcog.github.io/parallax.js/
 
@@ -37,7 +38,13 @@ $show_slider = 0; # if set to 1, then show content slider on home page.
 
 
 # if you would like to make quicker changes to the css, rather than editing one of the css files you can put it here, which will add a <style> tag to the end of the page
-$style_tweaks = '<style></style>';
+$style_tweaks = '';
+
+#link text - change these words to urls whenever they are used in text on a page (only changes the first occurance of a word)
+$link_text=array(
+"puppy"=>"http://puppycms.com",
+);
+
 
 #####################################################################################
 ### the stuff below is more geeky stuff, so only play with it if you know what you're doing!
@@ -75,7 +82,10 @@ $title = ucwords(str_replace("-"," ",$url));
 ############################################## all below is instructions at the top of each page (title, desc etc) ###################################
 
 # grab the first line of the file, to see if it has any instructions in it.
-$first_line = fgets(fopen($file, 'r'));
+
+$first_line = "";
+if(file_exists($file)) $first_line = fgets(fopen($file, 'r'));
+
 
 	//if the file has the optional instructions heading line, then do stuff, else show the page as normal
 if ( strpos($first_line, '|') !== false)
@@ -91,7 +101,7 @@ if ($display[1] != "") { $title = $display[1]; }
 //create a meta description tag if its there
 if ($display[2] != "") { $meta_desc = '<meta name="description" content="'.$display[2].'">'; }
 
-// if 2 columns are requested, then show them
+// if columns are requested, then show them
 if ($display[3] != "") { $columns = $display[3]; }
 
 	
@@ -112,7 +122,16 @@ else $content = file_get_contents(CONTENT_DIR .'404' . $file_format);
 	
 }
 
+# function to change text to links
+	
+															function str_replace_first($from, $to, $subject)
+														{
+																$from = '/'.preg_quote($from, '/').'/';
+																return preg_replace($from, $to, $subject, 1);
+														}
+	
+
 
 # this is where I'm hiding :-)
-$puppy_link = 1; # if set to 1 then show link to puppy site. 
+$puppy_link = 1; # if set to 1 then show link to puppy site.
 ?>

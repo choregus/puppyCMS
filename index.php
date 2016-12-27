@@ -1,4 +1,4 @@
-<?php include('config.php'); include('extras/parsedown.php'); ?>
+<?php include('config.php'); include('extras/parsedown.php'); include('extras/parsedownextra.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +7,16 @@
 <title><?php echo $title ? $title : $default_title; ?></title>
 <?php
 if (isset($meta_desc)) {echo $meta_desc."\r\n";} // show meta description
-# note below that grids-responsive-min.css is included inside the pure-min.css file for speed test reasons	
+# note below that grids-responsive-min.css is included inside the pure-min.css file for speed test reasons
+if ($evil_icons == 1) { echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.css"><script src="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.js"></script>';}
 ?>
 <link rel="stylesheet" href="style/pure-min.css">
 <link rel="stylesheet" href="style/themes/<?php echo $theme ?>.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <?php
 if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) { #show if slider selected  ?><link rel="stylesheet" href="<?php echo $site_root; ?>extras/rs/responsiveslides.css">
-<script src="<?php echo $site_root; ?>extras/rs/responsiveslides.min.js"></script><?php } # end of slider if section ?>
+<script src="<?php echo $site_root; ?>extras/rs/responsiveslides.min.js"></script><?php } # end of slider if section
+?>
 </head>
 <body>
 <div class="pure-g" id="layout">
@@ -31,9 +33,9 @@ foreach ($slide as $value) {
 } //end of the show slider loop
 ?>
 </ul>
-<?php 
+<?php
 #turn the markdown into html
-$Parsedown = new Parsedown();
+$Parsedown = new ParsedownExtra();
 echo $Parsedown->text($content);
 
 ?>
@@ -47,13 +49,13 @@ echo $Parsedown->text($content);
 <div class="pure-menu">
 <a class="pure-menu-heading" href="#"><?php echo "Menu"; ?></a>
 <?php # if form has been selected then show
-if ($show_form == 1) {include('extras/form/form-input.html');} # show enquiry form if selected	?>	
+if ($show_form == 1) {include('extras/form/form-input.html');} # show enquiry form if selected	?>
 <ul class="pure-menu-list">
 <?php
-echo "<li class=\"pure-menu-item\"><a href='$site_root'>Home</a></li>\n";
+echo "<li class=\"pure-menu-item\"><a href='$site_root' class='pure-menu-link'>Home</a></li>\n";
 	
 ######## site or blog mode - the following code block either lists the pages of the site in reverse time order (blog), or lists pages alphabetically (website)
-if($blog_mode == 1) {	
+if($blog_mode == 1) {
 # the stuff here is listing files in reverse order of time created - effectively a blog
 $dir = CONTENT_DIR;
 chdir($dir);
@@ -63,9 +65,9 @@ foreach($files as $file)
 			if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
 				$file = str_replace(".txt","",$file); // take off the extension
 		$page_name = ucwords(str_replace("-"," ",$file)); # take out hyphens for the page name.
-        echo("<li class=\"pure-menu-item\"><a href='$file'>".mb_substr($page_name,0,30)."</a></li>\n");
+        echo("<li class=\"pure-menu-item\"><a href='$file' class='pure-menu-link'>".mb_substr($page_name,0,30)."</a></li>\n");
 										}
-			}	
+			}
 									} # end of blog mode
 							else { # show files of site in website mode (alphabetical)
 		
@@ -83,19 +85,18 @@ natsort($files); // sort the files into name order.
 	
 foreach($files as $file) {
 	$page_name = ucwords(str_replace("-"," ",$file)); # take out hyphens for the page name.
-     #   echo("<li class=\"pure-menu-item\"><a href='$file'>$page_name</a></li>\n");
-	        echo("<li class=\"pure-menu-item\"><a href='$file'>".mb_substr($page_name,0,30)."</a></li>\n");
-													} 		
+	        echo("<li class=\"pure-menu-item\"><a href='$file' class='pure-menu-link'>".mb_substr($page_name,0,30)."</a></li>\n");
+													}
 		}
 	
 if ($show_edit == 1) {
 	
-	echo("<li class=\"pure-menu-item\"><a href='".$site_root."editor/'>Admin</a></li>\n");
+	echo("<li class=\"pure-menu-item\"><a href='".$site_root."editor/' class='pure-menu-link'>Admin</a></li>\n");
 }
 
  	if ($puppy_link == 1) {
 	
-	echo("<li class=\"pure-menu-item\"><a href='http://puppycms.com'>Built with puppyCMS</a></li>\n");
+	echo("<li class=\"pure-menu-item\"><a href='http://puppycms.com' class='pure-menu-link'>Built with puppyCMS</a></li>\n");
 }
 echo "</ul></div></div>\n";
 
@@ -138,15 +139,27 @@ $(document).ready(function() {
 $('.pure-g').flowtype({minimum   : 299, maximum   : 1500, minFont   : 16, maxFont   : 20, fontRatio : 30 });
 $('ul').flowtype({minFont   : 16,maxFont   : 18, fontRatio : 30});
 <?php } ?>
+
+    $("#os").click(function(){
+        $(".offstrip").toggle();
+    });
+        $("#dt").click(function(){
+        $(".downtown").toggle();
+    });
+         $("#strip").click(function(){
+        $(".strip").toggle();
+    });
+
 });
-</script><?php # the line below is required for the menu system, parallax and better fonts - all other js code should be loaded into this file. ?>	
+</script><?php # the line below is required for the menu system, parallax and better fonts - all other js code should be loaded into this file. ?>
 <script src="style/ui.js"></script>
-<?php 
+<?php
 # include custom styles if they have been used
 	if ($style_tweaks <> "") { echo $style_tweaks;	} ?>
-<?php 
-# record web stats if it has been selected in config file.	
+<?php
+# record web stats if it has been selected in config file.
 	if ($web_stats = 1) { include('extras/stats/stl.php'); } ?>
-<!-- built with puppyCMS version 3.0 -->
+<!-- built with puppyCMS version 3.5 -->
+
 </body>
 </html>

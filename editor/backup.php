@@ -5,7 +5,7 @@ $the_folder = '../content/';
 $zip_file_name = 'backup-puppyCMS-'.$download_date.'.zip';
 
 
-$download_file= true;
+$download_file= false;
 //$delete_file_after_download= true; doesnt work!!
 
 

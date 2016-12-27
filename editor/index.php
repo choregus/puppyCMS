@@ -1,73 +1,108 @@
 <?php
-session_start();
+	session_start();
 ?>
 <html>
 <head>
 
-<link rel="stylesheet" type="text/css" href="style.css">
+	<title>File List</title>
 
+	<link rel="stylesheet" type="text/css" href="../style/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="assets/alertify.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="assets/alertify.min.js"></script>
+	<script type="text/javascript">
+		var filename;
+		function renameFile(x, name){
+		// filename =  x.substr(x.lastIndexOf('.')+1);
+		// console.log(filename);
 
-function renameFile(x, name){
-	
-	var m = prompt("Change "+x+" to a new filename");
-	if(m == "" || m == null){
-		alert("Enter name.");
+		// var extension = x.substr(0, x.lastIndexOf('.')) || x;
+		// console.log(extension);
+
+			alertify.set({ buttonFocus: "none" });
+			alertify.prompt("Rename '"+x+"' into", function (e, str) {
+			    // str is the input text
+			    if (e) {
+			    	if (str == "") {
+			    		alertify.alert("You must type a name.");
+			    	} else {
+				        $.ajax({
+						    type: "POST",
+						    url: "function.php",
+						    data: "rename=" + str + "&oldName="+name,
+						    success : function(text){
+						    	alertify.alert("File successfully renamed");
+						        window.location="index.php";
+						    }
+						});
+			    	}
+			    } else {
+			        // user clicked "cancel"
+			    }
+			}, x);
+
 		}
-		else{
-	
-	$.post("rename.php", {oldName:name,
-						rename: m
-	}, function(respond){
-        alert(respond);
-		window.location="index.php";
-    });
-	
-		}
-	
-	}
-	function deleteFile(name){
-	
-	
-	$.post("delete.php", {oldName:name}, function(respond){
-        alert(respond);
-		window.location="index.php";
-    });
-	
-	}
-	
-	function addNew()
-	{
-		var m = prompt("Enter file name and type");
-		if(m == "" || m == null){
-			alert("Enter a name");
-			}
-		else{
-		var pathx="../content/"+m;
-		
-		
-		$.post("create.php", {pathx:pathx}, function(respond){
-        alert(respond);
-		window.location="index.php";
-    });
-	
+
+		function deleteFile(name) {
+			alertify.set({ buttonFocus: "none" });
+			alertify.confirm('Are you sure you want to delete "'+ name +'"', function (e) {
+			    if (e) {
+			        $.ajax({
+					    type: "POST",
+					    url: "function.php",
+					    data: "oldName=" + name,
+					    success : function(text){
+					        window.location="index.php";
+					    }
+					});
+			    } else {
+			        // user clicked "cancel"
+			    }
+			});
+		        // alert(respond);
+				// window.location="index.php";
 		}
 		
+		function addNew() {
+			alertify.set({ buttonFocus: "none" });
+			alertify.prompt("Create a page", function (e, str) {
+			    // str is the input text
+			    if (e) {
+			    	if (str == "") {
+			    		alertify.alert("You must type a name.");
+			    	} else {
+				    	var pathx=str;
+				        $.ajax({
+						    type: "POST",
+						    url: "function.php",
+						    data: "pathx=" + pathx,
+						    success : function(data){
+						    	console.log(data);
+						    	var loc = "edit.php?name="+data;
+						        window.location = loc;
+						    }
+						});
+			    	}
+			    } else {
+			        // user clicked "cancel"
+			    }
+			}, "");
+		}
 		
-	}
-	
-	$(document).ready(function(e) {
-        $('#uploadbtn').click(function(e) {
-            $('#formCont').show();
-        });
-		$('#cancel').click(function(e) {
-            $('#formCont').hide();
-        });
-    });
-	
-</script>
+		$(document).ready(function(e) {
+	        $('#uploadbtn').click(function(e) {
+	        	$('#overlay').show();
+	            $('#formCont').show();
+	        });
+			$('#cancel').click(function(e) {
+	            $('#formCont').hide();
+	        	$('#overlay').hide();
+	        });
+	    });
+	</script>
 
 </head>
 <body>
@@ -90,14 +125,7 @@ if(isset($_POST['login']))
 				
 			}else{
 			
-				echo '
-											<script>
-											
-											alert("Invalid Login");
-											
-											</script>
-											
-											';
+				echo '<script>alert("Invalid Login");</script>';
 				
 			}
 	fclose($open);
@@ -113,8 +141,6 @@ if(isset($_POST['login']))
 
 if(!isset($_SESSION['session']))
 {
-	
-	
 	echo '
 	<form action="#" method="post">
 	<table align="center">
@@ -128,86 +154,56 @@ if(!isset($_SESSION['session']))
 	</form>
 	';
 	
-	
 	exit();
-	
 }
 
 
+if(isset($_POST['upload'])){
+	$uploadFile = $_FILES['uploadFile'];
 
-?>
+	if($uploadFile['size'] > 1) {
+		$exten = explode(".", strrev($uploadFile['name']));
+		$run = false;
+		if($exten[0] == "txt") {
+			$run = true;
+		}else if($exten[0] == "gpj"){
+			$run = true;
+		}else if($exten[0] == "fig"){
+			$run = true;
+		}else if($exten[0] == "gnp"){
+			$run = true;
+		}else if($exten[0] == "fdp"){
+			$run = true;
+		}
 
-<?php
-if(isset($_POST['upload']))
-{
+		if($run)
+		{
+			$path_file = "../content/".$uploadFile['name'];
 
-
-										$uploadFile = $_FILES['uploadFile'];
-
-										if($uploadFile['size'] > 1)
-
-										{
-											$exten = explode(".", strrev($uploadFile['name']));
-											
-											$run = false;
-											
-											if($exten[0] == "txt")
-											{
-											
-											$run = true;
-												
-											}else if($exten[0] == "gpj")
-											{
-											
-											$run = true;
-												
-											}else if($exten[0] == "fig")
-											{
-											
-											$run = true;
-												
-											}else if($exten[0] == "gnp")
-											{
-											
-											$run = true;
-												
-											}else if($exten[0] == "fdp")
-											{
-											
-											$run = true;
-												
-											}
-
-										if($run)
-										{
-										$path_file = "../content/".$uploadFile['name'];
-
-											move_uploaded_file($uploadFile['tmp_name'], $path_file);
-											
-											echo '
-											<script>
-											
-											alert("File uploaded successfully");
-											
-											</script>
-											
-											';
-											
-										}else{
-										
-											echo '
-											<script>
-											
-											alert("Unsupported file format");
-											
-											</script>
-											
-											';
-											
-										}
-											
-										}
-										
+			move_uploaded_file($uploadFile['tmp_name'], $path_file);
+			
+			echo '
+			<script>
+			
+			alert("File uploaded successfully");
+			
+			</script>
+			
+			';
+			
+		}else{
+		
+			echo '
+			<script>
+			
+			alert("Unsupported file format");
+			
+			</script>
+			
+			';
+			
+		}
+	}
 }
 
 
@@ -220,201 +216,119 @@ $dir = "../content/";
 if (is_dir($dir)){
   if ($dh = opendir($dir)){
 	  ?>
-<div class="menu-line">
-<ul class="main_ul" >
-	<li class="main_list" onClick="active('sub1')">
-    	File
-        <ul id="sub1" class="sub_list">
-
-        	<li class="file-menu-list" onClick="addNew()">
-
-            	Add new
-
-            </li>
-
-            <li class="file-menu-list" id="uploadbtn">
-
-            	Upload
-
-            </li>
-
-        </ul>
-    </li>
-</ul>
-</div>
-<style>
-.overlay{
-		width:100%;
-		height:100%;
-		position:fixed;
-		left:0px;
-		top:0px;
-		background-color:rgba(153,153,153,0.3);
-		display:none;
-	}
-	.overlay_active{
-		display:inline-block;
-	}
-</style>
 
 
-<div class="overlay" id="overlay">
+	<div class="overlay" id="overlay"></div>
 
-</div>
-
-
-      <!--<button onClick="addNew()" >Add New</button> &nbsp; <button id="uploadbtn">Upload</button> -->
-      <br>
-      <br>
-      <div id="formCont" style="width:100%;height:auto; display:none;" class="mid_cont">
-      	<div style="width:400px; height:100px; position:relative; margin:auto; margin-top:200px; z-index:999999; border-radius:4px; background-color:#fff; padding:20px; padding-top:40px; text-align:center;">
+    <div id="formCont" class="puppy-modal">
       	<form enctype="multipart/form-data" action="#" method="post">
-        	<input type="file" name="uploadFile" />
-            <br>
-            <br>
-            	<input type="submit" name="upload" value="upload" style="float:left; width:100px; height:30px;"> <input type="button" value="Cancel" id="cancel" style="float:right; width:100px; height:30px;"/>
-            <br>
-            <br>
-            
+      		<h5 class="puppy-modal-title">Upload</h5>
+      		<div class="puppy-modal-body">
+      			<label>Select file</label>
+      			<input type="file" name="uploadFile" />
+      		</div>
+
+      		<div class="puppy-modal-footer">
+      			<input type="submit" name="upload" value="upload" class="pure-button button-success"/>
+            	<input type="button" value="Cancel" id="cancel"  class="pure-button button-error"/>
+      		</div>
         </form>
-        </div>
-      </div>
-      <table style="width:100%; border:dashed 1px #0099FF; max-width:900px; " cellspacing="0">
-      <tr style="background-color:#0099FF; height:30px; font-size:18px; line-height:30px; color:#fff; font-family:'Segoe UI'; text-align:center;">
-      
-      
-        	<td style="min-width:400px;">
-            Name
-            </td>
-            
-            <td style="width:40px;">
-            Size
-            </td>
-              
-            <td style="width:40px;">
-            Rename
-            </td>
-            <td style="width:40px;">
-            	Edit
-            
-            </td>
-            <td style="width:40px;">
-            
-            	Delete
-            
-            </td>
-            
-        </tr>
-      <?php
-	  
-	  $storage = scandir($dir);
-	  
-	  //print_r();
-	  
-    //while (($file = readdir($dh)) !== false){
-		foreach($storage as $file)
-		{
-		$file2 = explode('.',$file);
-		
+    </div>
+
+    <h1 class="page-title">Available Files</h1>
+
+    <div class="container button-list">
+    	<button class="pure-button pure-button-primary" title="Create new page" onClick="addNew()"><i class="fa fa-file-o"></i> New Page</button>
+		<button class="pure-button pure-button-primary" title="Upload assets" id="uploadbtn"><i class="fa fa-upload"></i> Upload Assets</button>
+    </div>
+
+    <div class="container">
+    	<table class="pure-table pure-table-horizontal file-list-table" cellspacing="0" width="100%">
+	    	<thead>
+		      	<tr>
+		        	<td>Name</td>
+		            <td>Size</td>
+		            <td width="130" align="center">Actions</td>
+		        </tr>
+		    </thead>
+		    <tbody>
+	      <?php
+		  
+		  $storage = scandir($dir);
+		  
+		  	//print_r();
+		  
+	    	//while (($file = readdir($dh)) !== false){
+			foreach($storage as $file)
+			{
+			$file2 = explode('.',$file);
 			
-		if((isset($file2[1])) && ($file2[1]!="") && ($file2[1]!="php") && ($file2[1]!="js"))
-		{
-			$type=true;
-		}
-		else
-		{
-			$type=false;
-		}
-		if($type)
-		{?>
-        
-        <tr style="text-align:center;" class="row_select">
-        	<td style="width:400px; text-align:left;" class="file_name">
+				
+			if((isset($file2[1])) && ($file2[1]!="") && ($file2[1]!="php") && ($file2[1]!="js"))
+			{
+				$type=true;
+			}
+			else
+			{
+				$type=false;
+			}
+			if($type)
+			{?>
+		        <tr class="row_select">
+		        	<td class="file_name">
 						<a href='<?php  echo '../content/'.$file; ?>'><?php  echo $file; ?></a>
-            </td>
-            
-            <td style="border-left:dashed 1px #0099FF;">
-            	<?php
-				
-				$sizeOfFile = number_format((filesize("../content/".$file)/1024), 2);
-				 
-				if($sizeOfFile < 1024){
-					echo $sizeOfFile." kb";
-					}
-				else if($sizeOfFile >= 1024){
-					
-					echo number_format((filesize($sizeOfFile)/1024), 2)." mb";
-					}
-				
-				?>
-            	
-            </td>
-            
-            
-            <td style="border-left:dashed 1px #0099FF;">
-            	<button onClick="renameFile('<?php  echo $file2[0]; ?>', '<?php  echo $file; ?>')" class="button rename"></button>
-            	
-            </td>
-            
-            
-            
-            
-            <td style="border-left:dashed 1px #0099FF;">
-            <?php
-			$extension = substr(strrchr($file,'.'),1);
-			if($extension == "html" || $extension == "txt"){
-			 ?>
-            	<a href="edit.php?name=<?php  echo $file; ?>"><button class="button edit" ></button></a>
-               <?php } ?>
-            </td>
-            
-            <td style="border-left:dashed 1px #0099FF;">
-            
-            	<button class="button delete" onClick="deleteFile('<?php  echo $file; ?>')"></button>
-            
-            </td>
-            
-        </tr>
-            
-            <?php
-		}
-      
-    }
-    closedir($dh);
-	?>
-	</table>
-	
-	puppyFileExplorer by James Welch - <a href="backup.php">Backup files to zip</a> | Go back to <a href="../">your site</a>.
-	
+		            </td>
+		            
+		            <td>
+		            	<?php
+							$sizeOfFile = number_format((filesize("../content/".$file)/1024), 2);
+							 
+							if($sizeOfFile < 1024){
+								echo $sizeOfFile." kb";
+							} else if($sizeOfFile >= 1024){
+								echo number_format((filesize($sizeOfFile)/1024), 2)." mb";
+							}
+						?>
+		            </td>
+
+		            <td align="right">
+		            	<button title="Rename file" class="button rename button-success pure-button button-small" onClick="renameFile('<?php  echo $file2[0]; ?>', '<?php  echo $file; ?>')"><i class="fa fa-pencil"></i></button>
+
+			            <?php
+							$extension = substr(strrchr($file,'.'),1);
+							if($extension == "html" || $extension == "txt"){
+						?>
+			            	<a title="Edit page" class="button-secondary pure-button button-small" href="edit.php?name=<?php  echo $file; ?>"><i class="fa fa-edit"></i></a>
+			            <?php } ?>
+
+		            	<button title="Delete file or page" class="button delete button-error pure-button button-small" onClick="deleteFile('<?php  echo $file; ?>')"><i class="fa fa-trash"></i></button>
+		            </td>
+		        </tr>
+	            <?php
+			}
+	      
+	    }
+	    closedir($dh);
+		?>
+		</tbody>
+		</table>
+    </div>
+
+	<div>
+		puppyFileExplorer by James Welch - <a href="backup.php">Backup files to zip</a> | Go back to <a href="../">your site</a>.
+	</div>
+		
     <?php
   }
 }
 ?>
 <script>
-	function active(sublist)
-	{
-		$('#overlay').addClass("overlay_active");
-		var listId = '#'+sublist;
-		$(listId).addClass("sub_list_active");
-	}
-	
 	$(document).ready(function(e) {
         $('#overlay').click(function(e) {
-            $(this).removeClass("overlay_active");
-			$('.sub_list').removeClass("sub_list_active");
+            $(this).hide();
 			$('#formCont').hide();
         });
-		$('#cancel').click(function(e) {
-            $('#overlay').removeClass("overlay_active");
-			$('.sub_list').removeClass("sub_list_active");
-        });
     });
-	/*$(document).ready(function(e) {
-        $('#file1').click(function(e) {
-            $('#overlay').addClass(overlay_active);
-        });
-    });*/
-	
-    </script>
+</script>
 </body>
 </html>

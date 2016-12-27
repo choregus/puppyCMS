@@ -5,6 +5,15 @@
 Basic HTML entities styled here.
 */
 
+.box {
+    display: block;
+}
+
+.box_a:checked ~ #a, .box_b:checked ~ #b {
+    display: none;
+}
+
+
 body, p, ul, ol {
     color: #777;
 font-family: 'Average', serif;
@@ -16,7 +25,7 @@ h1, h2, h3, h4, h5, h6
 {
   font-family: 'Fjalla One', sans-serif;
   line-height:1.2em;
-  color:#000000;
+  color:#1F8DD6;
 	text-align:left;
 
 }
@@ -25,8 +34,8 @@ ul, ol
 {
 }
  
-p a{text-decoration:underline;color:#0099cc;padding-left:3px;padding-right:3px;}
-p a:hover {color: white; background-color: #000000;}
+p a{text-decoration:underline;color:#1F8DD6;padding-left:3px;padding-right:3px;}
+p a:hover {color: white; background-color: #1F8DD6;}
 
 blockquote {
   font-weight: bold;
@@ -35,6 +44,12 @@ blockquote {
 	padding: 0 1em 0 1em; /* 0 24px 0 16px */
 	}
 
+.icon {fill: #1F8DD6;
+}
+
+
+.yt-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 99%; }
+.yt-video iframe, .yt-video object, .yt-video embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; margin-top:1em;}
 
     /*
     All anchors inside the menu should be styled like this.
@@ -142,6 +157,7 @@ appears on the left side of the page.
         */
         #menu .pure-menu li a:hover,
         #menu .pure-menu li a:focus {
+          background-color: #1f8dd6;
         }
 
     /*
@@ -194,7 +210,7 @@ small screens.
 
     .menu-link:hover,
     .menu-link:focus {
-        background: #000;
+        background: #1f8dd6;
     }
 
     .menu-link span {
