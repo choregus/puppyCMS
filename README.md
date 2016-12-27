@@ -1,9 +1,9 @@
 # puppyCMS
-pupyCMS is a very simple, flat file CMS that is SEO friendly and responsive - built in PHP (minimum requirements are PHP 5.2). It takes a few seconds to configure (just one config file). It works on all major browsers including mobile versions. It is absolutely mobile first.
+pupyCMS is a very simple, flat file CMS that is SEO friendly and responsive - built in PHP (minimum requirements are PHP 5). It takes a few seconds to configure (just one config file). It works on all major browsers including mobile versions. It is absolutely mobile first.
 
 The biggest difference between puppyCMS and other flat file, responsive content management platforms is that its **very** small, takes seconds to start. It uses purecss.io and parsedown.org to produce wonderfully lightweight web pages. You use markdown to write the content and it outputs in bloat-free html.
 
-[jQuery](http://jquery.com) is used if additional functionality is required.
+[jQuery](http://jquery.com) for additional functionality.
 
 You can create smart looking micro sites with ease, but if you want to extend them into full sites, then a bit of fiddling with HTML, maybe some PHP and you can have fully-fledged websites too - very SEO friendly.
 
@@ -24,9 +24,12 @@ See the homepage here: http://puppycms.com/
 * Built in simple web stats
 * Built in parallax scrolling effects
 * Multiple columns output
+* Auto linking of text
+* Evil Icons
+* YouTube Short Code
 
 If you want to make simple static content sites in very quick time, then puppyCMS is the CMS for you. It is perfect for creating hobby sites, or micro sites, and with the templates included, you can produce very smart, content-rich sites in no time.
 
 puppyCMS also uses the excellent [Responsive Slides](https://github.com/viljamis/ResponsiveSlides.js) slider for additional functionality if required.
 
-Puppy version 3.0, the latest release, is now only 67k in size, but does the same job as other CMS systems that are at least 10 times the size.
+Puppy version 4.0, the latest release, is now only 67k in size, but does the same job as other CMS systems that are at least 10 times the size.
