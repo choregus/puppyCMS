@@ -32,4 +32,4 @@ If you want to make simple static content sites in very quick time, then puppyCM
 
 puppyCMS also uses the excellent [Responsive Slides](https://github.com/viljamis/ResponsiveSlides.js) slider for additional functionality if required.
 
-Puppy version 4.0, the latest release, is now only 67k in size, but does the same job as other CMS systems that are at least 10 times the size.
+Puppy version 4.0, the latest release, is now only 70k in size (although I'm constantly looking to make this smaller, but does the same job as other CMS systems that are at least 10 times the size.
