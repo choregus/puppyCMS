@@ -13,6 +13,7 @@ if ($evil_icons == 1) { echo '<link rel="stylesheet" href="https://cdn.jsdelivr.
 <link rel="stylesheet" href="style/pure-min.css">
 <link rel="stylesheet" href="style/themes/<?php echo $theme ?>.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<?php if ($scroll_anim == 1) { echo '<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">';} ?>
 <?php
 if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) { #show if slider selected  ?><link rel="stylesheet" href="<?php echo $site_root; ?>extras/rs/responsiveslides.css">
 <script src="<?php echo $site_root; ?>extras/rs/responsiveslides.min.js"></script><?php } # end of slider if section
@@ -133,6 +134,7 @@ if ($show_social == 1) {
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dr);
   })();
 </script><?php } # end of showing social icons ?>
+<script src="style/ui.js"></script>
 <script>
 $(document).ready(function() {
 <?php if ($better_fonts == 1) { # this uses /extras/text.js to produce fonts that fit the page much better. recommended to turn it on in config.php ?>
@@ -140,26 +142,16 @@ $('.pure-g').flowtype({minimum   : 299, maximum   : 1500, minFont   : 16, maxFon
 $('ul').flowtype({minFont   : 16,maxFont   : 18, fontRatio : 30});
 <?php } ?>
 
-    $("#os").click(function(){
-        $(".offstrip").toggle();
-    });
-        $("#dt").click(function(){
-        $(".downtown").toggle();
-    });
-         $("#strip").click(function(){
-        $(".strip").toggle();
-    });
+AOS.init();
 
 });
 </script><?php # the line below is required for the menu system, parallax and better fonts - all other js code should be loaded into this file. ?>
-<script src="style/ui.js"></script>
 <?php
 # include custom styles if they have been used
 	if ($style_tweaks <> "") { echo $style_tweaks;	} ?>
 <?php
 # record web stats if it has been selected in config file.
 	if ($web_stats = 1) { include('extras/stats/stl.php'); } ?>
-<!-- built with puppyCMS version 3.5 -->
-
+<!-- built with puppyCMS version 4.0 -->
 </body>
 </html>
