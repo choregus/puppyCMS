@@ -20,6 +20,8 @@ $show_edit = 1; # if set to 1, then show Admin link in side bar.
 $show_form = 0; # if set to 1, then show an enquiry form in side bar.
 $better_fonts = 1; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :)
 $evil_icons = 1; # ability to use evil icons (MIT) for nice looking icons around the text - e.g. <div data-icon="ei-chart" data-size="s"></div>
+$scroll_anim = 1; #if this is set then you can create scroll effects on divs, paragraphs, images etc by using ASO (http://michalsnik.github.io/aos/).
+# Example code: <div class="yt-video" data-aos="flip-up" data-aos-duration="3000" data-aos-offset="300"><iframe src="https://www.youtube.com/embed/zML2J7lx76c" frameborder="0" allowfullscreen></iframe></div>
 $web_stats = 0; # if set to 1, then web visitors will be recorded. You can view stats in yoursite.com/extras/stats
 
 # parallax scrolling?
