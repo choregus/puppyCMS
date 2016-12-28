@@ -10,7 +10,7 @@ if (isset($meta_desc)) {echo $meta_desc."\r\n";} // show meta description
 # note below that grids-responsive-min.css is included inside the pure-min.css file for speed test reasons
 if ($evil_icons == 1) { echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.css"><script src="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.js"></script>';}
 ?>
-<link rel="stylesheet" href="style/pure-min.css">
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css">
 <link rel="stylesheet" href="style/themes/<?php echo $theme ?>.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <?php if ($scroll_anim == 1) { echo '<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">';} ?>
