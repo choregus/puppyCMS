@@ -6,7 +6,7 @@
 
 	<title>File List</title>
 
-	<link rel="stylesheet" type="text/css" href="../style/pure-min.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css">
 	<link rel="stylesheet" type="text/css" href="assets/alertify.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
