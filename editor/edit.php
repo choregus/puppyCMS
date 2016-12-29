@@ -40,6 +40,7 @@ foreach($link_text as $text=>$link)
 
 };
 
+// YouTube short code replacement code
 
 $txt = preg_replace('/{{(.*?)}}/', '<div class="yt-video"><iframe src="https://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe></div>', $txt);
 $txt = preg_replace('/{{<iframe/', '<iframe', $txt);
@@ -55,6 +56,11 @@ $txt = preg_replace('/{{<iframe/', '<iframe', $txt);
 		header("location:index.php");
 	}
 
+} else {
+  
+  //backup testing
+copy ($path,"../content/bak/".date('Y-m-d-His')."-".$_GET['name']);
+  
 }
 
 $fileN = file_get_contents($path);
@@ -63,7 +69,7 @@ $fileN = file_get_contents($path);
 <html>
 <head>
 	<title>Editor</title>
-	<link rel="stylesheet" type="text/css" href="../style/pure-min.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css">
 	<link rel="stylesheet" type="text/css" href="assets/alertify.css">
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
 	<!-- markItUp! skin -->
