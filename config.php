@@ -1,6 +1,6 @@
 <?php
 
-### Config file for puppyCMS by James Welch, 2016.
+### Config file for puppyCMS by James Welch, 2017.
 #
 ### change the variables here to ensure your content is secure.
 
