@@ -1,10 +1,11 @@
 <?php
 
 ### Config file for puppyCMS by James Welch, 2017.
-#
+###
 ### change the variables here to ensure your content is secure.
 
-$site_name = "My Site"; # e.g. Steve's Site
+$site_name = "Puppy CMS"; # e.g. Steve's Site
+$site_brand = "Puppy"; # Short text that goes above the menu - or you can use 'Menu' if you like
 
 $site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
@@ -14,6 +15,7 @@ $theme = "puppy"; # default theme is puppy. You can choose from puppy, puppy-bla
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
 
+$menu = 'left-sidebar'; # 3 options left-sidebar or right-sidebar or top-menu
 $blog_mode = 0; # if set to 1, then pages are shown in menu in reverse time order. 0 lists pages alphabetically.
 $show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
 $show_edit = 1; # if set to 1, then show Admin link in side bar.
@@ -44,7 +46,7 @@ $style_tweaks = '';
 
 #link text - change these words to urls whenever they are used in text on a page (only changes the first occurance of a word)
 $link_text=array(
-"puppy"=>"http://puppycms.com",
+	"puppy"=>"http://puppycms.com",
 );
 
 
@@ -71,12 +73,18 @@ $script_url  = (isset($_SERVER['PHP_SELF'])) ? $_SERVER['PHP_SELF'] : '';
 if($request_url != $script_url) $url = trim(preg_replace('/'. str_replace('/', '\/', str_replace('index.php', '', $script_url)) .'/', '', $request_url, 1), '/');
 
 // Get the file path
-if($url) $file = strtolower(CONTENT_DIR . $url);
-else $file = CONTENT_DIR .'index';
+if($url) {
+	$file = strtolower(CONTENT_DIR . $url);
+} else {
+	$file = CONTENT_DIR .'index';
+}
 
 // Load the file
-if(is_dir($file)) $file = CONTENT_DIR . $url .'/index' . $file_format;
-else $file .=  $file_format;
+if(is_dir($file)) {
+	$file = CONTENT_DIR . $url .'/index' . $file_format;
+} else {
+	$file .=  $file_format;
+}
 
 # make the title tag human-readable
 $title = ucwords(str_replace("-"," ",$url));
@@ -86,53 +94,61 @@ $title = ucwords(str_replace("-"," ",$url));
 # grab the first line of the file, to see if it has any instructions in it.
 
 $first_line = "";
-if(file_exists($file)) $first_line = fgets(fopen($file, 'r'));
+if(file_exists($file)) {
+	$first_line = fgets(fopen($file, 'r'));
+}
 
 
-	//if the file has the optional instructions heading line, then do stuff, else show the page as normal
-if ( strpos($first_line, '|') !== false)
+//if the file has the optional instructions heading line, then do stuff, else show the page as normal
+if ( strpos($first_line, '|') !== false) {
 	
-				{
+	//extract the instructions between the pipes
+	$display = explode('|', $first_line);
+
+	//create a title tag if its there
+	if ($display[1] != "") {
+		$title = $display[1];
+	}
+
+	//create a meta description tag if its there
+	if ($display[2] != "") {
+		$meta_desc = '<meta name="description" content="'.$display[2].'">';
+	}
+
+	// if columns are requested, then show them
+	if ($display[3] != "") {
+		$columns = $display[3];
+	}
+
 	
-//extract the instructions between the pipes
-$display = explode('|', $first_line);
-
-//create a title tag if its there
-if ($display[1] != "") { $title = $display[1]; }
-
-//create a meta description tag if its there
-if ($display[2] != "") { $meta_desc = '<meta name="description" content="'.$display[2].'">'; }
-
-// if columns are requested, then show them
-if ($display[3] != "") { $columns = $display[3]; }
-
+	// get the contents of the file
+	if(file_exists($file)) {
+		$content = file_get_contents($file);
+	    $content = preg_replace("/[|](.*)[\n\r]/","",$content,1);
+	}else {
+		// Show 404 if file cannot be found
+		$content = file_get_contents(CONTENT_DIR .'404' . $file_format);
+		$content = preg_replace("/[|](.*)[\n\r]/","",$content,1);
+	}
 	
-// get the contents of the file
-if(file_exists($file)) $content = file_get_contents($file);
-
-// Show 404 if file cannot be found
-else $content = file_get_contents(CONTENT_DIR .'404' . $file_format);
-
-$content = preg_replace("/[|](.*)[\n\r]/","",$content,1);
+} else  {
+	//if there were no instructions
 	
-				} else  { //if there were no instructions
-	
-if(file_exists($file)) $content = file_get_contents($file);
-
-// Show 404 if file cannot be found
-else $content = file_get_contents(CONTENT_DIR .'404' . $file_format);
+	if(file_exists($file))  {
+		$content = file_get_contents($file);
+	} else {
+		// Show 404 if file cannot be found
+		$content = file_get_contents(CONTENT_DIR .'404' . $file_format);
+	}
 	
 }
 
 # function to change text to links
 	
-															function str_replace_first($from, $to, $subject)
-														{
-																$from = '/'.preg_quote($from, '/').'/';
-																return preg_replace($from, $to, $subject, 1);
-														}
-	
-
+function str_replace_first($from, $to, $subject) {
+	$from = '/'.preg_quote($from, '/').'/';
+	return preg_replace($from, $to, $subject, 1);
+}
 
 # this is where I'm hiding :-)
 $puppy_link = 1; # if set to 1 then show link to puppy site.

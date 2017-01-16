@@ -49,9 +49,6 @@ LICENSE
     $td = "background-color: red;padding-left: 4px;padding-right: 4px;"; # Table Data
     $ss = "color: white;"; # text Span
 
-    # Timezone
-     date_default_timezone_set('Europe/London'); # Comment this out if you wish to use your server's time. Valid timezones are listed at http://www.php.net/manual/en/timezones.php
-
     # Logging times
     # Set the cycle's start and end times to the same values to track visitors over 24 hour cycles
     # Archives are created at the end of every cycle.
@@ -229,7 +226,7 @@ $count = (count(file($log))-1);
 
   if ($show_se_cy_counter == "1" || $show_total_counter == "1" || $show_tote_counter == "1" ){
 
-    echo "<table id='simple_php_counter' style='$ts'>";    
+    echo "<table id='simple_php_counter' style='$ts'>";
     if ($show_se_cy_counter == "1")
       {
       echo "<tr><td style='$td'><span class='simple_php_counter' style='$ss'>".$title_se_cy_counter."</span></td><td style='$td'>$count</td></tr>";
