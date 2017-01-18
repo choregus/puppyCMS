@@ -7,7 +7,7 @@
 $site_name = "Puppy CMS"; # e.g. Steve's Site
 $site_brand = "Puppy"; # Short text that goes above the menu - or you can use 'Menu' (or leave blank) if you like
 
-$site_root = "/puppy/puppyCMS/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
+$site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
