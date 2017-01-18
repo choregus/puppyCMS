@@ -263,8 +263,8 @@ if (is_dir($dir)){
 			{
 			$file2 = explode('.',$file);
 			
-				
-			if((isset($file2[1])) && ($file2[1]!="") && ($file2[1]!="php") && ($file2[1]!="js"))
+			# dont show these types of file in list
+			if((isset($file2[1])) && ($file2[1]!="") && ($file2[1]!="php") && ($file2[1]!="js") && ($file2[1]!="css"))
 			{
 				$type=true;
 			}
@@ -292,16 +292,22 @@ if (is_dir($dir)){
 		            </td>
 
 		            <td align="right">
+		                <?php if($file == "style.txt" || $file == "index.txt" || $file == "thankyou.txt" || $file == "404.txt"){} else {  ?>
 		            	<button title="Rename file" class="button rename button-success pure-button button-small" onClick="renameFile('<?php  echo $file2[0]; ?>', '<?php  echo $file; ?>')"><i class="fa fa-pencil"></i></button>
 
-			            <?php
+			            <?php }
 							$extension = substr(strrchr($file,'.'),1);
 							if($extension == "html" || $extension == "txt"){
 						?>
 			            	<a title="Edit page" class="button-secondary pure-button button-small" href="edit.php?name=<?php  echo $file; ?>"><i class="fa fa-edit"></i></a>
-			            <?php } ?>
-
+			            <?php }
+			            
+			            # don't allow deleting of index or style files for added safety
+			            if($file == "style.txt" || $file == "index.txt" || $file == "thankyou.txt" || $file == "404.txt"){} else {
+			            ?>
 		            	<button title="Delete file or page" class="button delete button-error pure-button button-small" onClick="deleteFile('<?php  echo $file; ?>')"><i class="fa fa-trash"></i></button>
+		             <?php } ?>
+			            
 		            </td>
 		        </tr>
 	            <?php

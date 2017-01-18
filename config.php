@@ -1,33 +1,30 @@
 <?php
 
 ### Config file for puppyCMS by James Welch, 2017.
-###
-### change the variables here to ensure your content is secure.
+
+### Change the variables below to personalise your site
 
 $site_name = "Puppy CMS"; # e.g. Steve's Site
-$site_brand = "Puppy"; # Short text that goes above the menu - or you can use 'Menu' if you like
+$site_brand = "Puppy"; # Short text that goes above the menu - or you can use 'Menu' (or leave blank) if you like
 
-$site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
-
-# Change theme
-$theme = "puppy"; # default theme is puppy. You can choose from puppy, puppy-black, campfire, teye, sunglasses (more to come).
+$site_root = "/puppy/puppyCMS/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
 
-$menu = 'left-sidebar'; # 3 options left-sidebar or right-sidebar or top-menu
+$menu = 'right-sidebar'; # 3 options left-sidebar or right-sidebar or top-menu (top menu useful for sites with < 6 pages for now)
 $blog_mode = 0; # if set to 1, then pages are shown in menu in reverse time order. 0 lists pages alphabetically.
 $show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
-$show_edit = 1; # if set to 1, then show Admin link in side bar.
-$show_form = 0; # if set to 1, then show an enquiry form in side bar.
-$better_fonts = 1; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :)
-$evil_icons = 1; # ability to use evil icons (MIT) for nice looking icons around the text - e.g. <div data-icon="ei-chart" data-size="s"></div>
-$scroll_anim = 1; #if this is set then you can create scroll effects on divs, paragraphs, images etc by using ASO (http://michalsnik.github.io/aos/).
-# Example code: <div class="yt-video" data-aos="flip-up" data-aos-duration="3000" data-aos-offset="300"><iframe src="https://www.youtube.com/embed/zML2J7lx76c" frameborder="0" allowfullscreen></iframe></div>
+$show_edit = 0; # if set to 1, then show Admin link in menu.
+$better_fonts = 0; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :)
+$evil_icons = 1; # ability to use evil icons (evil-icons.io) for nice looking icons  - e.g. <div data-icon="ei-chart" data-size="s"></div>
+$scroll_anim = 0; #if this is set then you can create scroll effects on divs, paragraphs, images etc by using ASO (http://michalsnik.github.io/aos/).
+# Example code: <div data-aos="flip-up" data-aos-duration="3000" data-aos-offset="300">Blah blah blah.</div>
+
 $web_stats = 0; # if set to 1, then web visitors will be recorded. You can view stats in yoursite.com/extras/stats
 
 # parallax scrolling?
-$parallax = 1; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
+$parallax = 0; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
 # example <p class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="path/to/image.jpg" style="min-height:200px;" >Some content here if you like.</p>
 # see more at: http://pixelcog.github.io/parallax.js/
 
@@ -40,13 +37,10 @@ $show_slider = 0; # if set to 1, then show content slider on home page.
 	$slide[4] = "";
 	$slide[5] = "";
 
-
-# if you would like to make quicker changes to the css, rather than editing one of the css files you can put it here, which will add a <style> tag to the end of the page
-$style_tweaks = '';
-
-#link text - change these words to urls whenever they are used in text on a page (only changes the first occurance of a word)
+#link text - change these phrases to urls whenever they are used in text on a page (only changes the first occurance of a phrase on a page)
+# e.g. link red widgets to http://redwidgets.com
 $link_text=array(
-	"puppy"=>"http://puppycms.com",
+	"PuppyCMS"=>"http://puppycms.com",
 );
 
 
@@ -152,4 +146,5 @@ function str_replace_first($from, $to, $subject) {
 
 # this is where I'm hiding :-)
 $puppy_link = 1; # if set to 1 then show link to puppy site.
+$puppy_version = "5.0";
 ?>

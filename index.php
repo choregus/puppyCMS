@@ -2,8 +2,9 @@
 	include('config.php');
 	include('extras/parsedown.php');
 	include('extras/parsedownextra.php');
+	require 'extras/pass.php';
+	$pass = new pass('content/style.txt');
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +17,13 @@
 			echo $meta_desc."\r\n";
 		}
 
-		// note below that grids-responsive-min.css is included inside the pure-min.css file for speed test reasons
 		if ($evil_icons == 1) {
 			echo 	'<link rel="stylesheet" href="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.css">'.
 					'<script src="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.js"></script>';
 		}
 	?>
 	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css">
-	<link rel="stylesheet" href="style/themes/<?php echo $theme ?>.css">
+	<link rel="stylesheet" href="<?=$pass->name;?>">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<?php
 		if($scroll_anim == 1) {
@@ -65,6 +65,7 @@
 				}
 
 				#turn the markdown into html
+				#$Parsedown = new Parsedown(); #revert to this if you have issues with blank screen
 				$Parsedown = new ParsedownExtra();
 				echo $Parsedown->text($content);
 
@@ -78,14 +79,6 @@
 			<div id="menu">
 				<div class="pure-menu">
 					<a class="pure-menu-heading" href="#"><?php echo $site_brand; ?></a>
-
-					<?php
-						# if form has been selected then show
-						if ($show_form == 1) {
-							include('extras/form/form-input.html');
-						}
-						# show enquiry form if selected
-					?>
 					<ul class="pure-menu-list">
 						<li class="pure-menu-item">
 							<a href="<?php echo $site_root; ?>" class='pure-menu-link'>Home</a>
@@ -99,7 +92,7 @@
 								array_multisort(array_map('filemtime', ($files = glob("*.txt"))), SORT_DESC, $files);
 
 								foreach($files as $file) {
-									if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
+									if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "style.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
 										$file = str_replace(".txt","",$file); // take off the extension
 										$page_name = ucwords(str_replace("-"," ",$file)); # take out hyphens for the page name.
 			    						echo '<li class="pure-menu-item"><a href="'.$file.'" class="pure-menu-link">'.mb_substr($page_name,0,30).'</a></li>';
@@ -114,7 +107,7 @@
 								$files = array();
 								$dir = opendir(CONTENT_DIR);
 								while(false != ($file = readdir($dir))) {
-									if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
+									if(($file != ".") and ($file != "..") and ($file != "404.txt") and ($file != "style.txt") and ($file != "index.txt") and ($file != "thankyou.txt") and (strpos($file, 'txt') !== false)) {
 										$files[] = str_replace(".txt","",$file); // put in array.
 			    					}
 								}
@@ -183,7 +176,7 @@
 	<?php } # end of showing social icons ?>
 
 	</script>
-	<script src="style/ui.js"></script>
+	<script src="extras/ui.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -199,7 +192,7 @@
 		<?php
 			}
 
-			if ($better_fonts == 1) { # this uses /extras/text.js to produce fonts that fit the page much better. recommended to turn it on in config.php
+			if ($better_fonts == 1) { # recommended to turn it on in config.php
 		?>
 				$('.pure-g').flowtype({
 					minimum   : 299,
@@ -220,18 +213,12 @@
 		});
 	</script>
 	<?php # the line below is required for the menu system, parallax and better fonts - all other js code should be loaded into this file. ?>
-
 	<?php
-		# include custom styles if they have been used
-		if ($style_tweaks <> "") {
-			echo $style_tweaks;
-		}
-
 		# record web stats if it has been selected in config file.
 		if ($web_stats == 1) {
 			include('extras/stats/stl.php');
 		}
 	?>
-	<!-- built with puppyCMS version 4.1 -->
+	<!-- built with puppyCMS version <?php echo $puppy_version; ?> -->
 </body>
 </html>

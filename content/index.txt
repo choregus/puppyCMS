@@ -1,7 +1,7 @@
 |This is the title of the page which you should really change - this appears in Google listings|This is the meta description of your new page which appears your listing on Google.|
 # This is my homepage
 
-This is the all-new version of [puppy](http://puppycms.com) that now has extra cool things included such as [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/) (a way to make writing content easy, whilst being powerful and extremely lean for SEO purposes) and [evil icons](http://evil-icons.io/), a set of icons to use within the site to make your puppy experience even more fancy.
+This is the all-new version of [PuppyCMS](http://puppycms.com) that now has extra cool things included such as [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/) (a way to make writing content easy, whilst being powerful and extremely lean for SEO purposes) and [evil icons](http://evil-icons.io/), a set of icons to use within the site to make your puppy experience even more fancy.
 
 You can do fancy things like make footnotes like this one -> [^1](click it). It's cool, ain't it?
 
@@ -15,7 +15,9 @@ You can do fancy things like make footnotes like this one -> [^1](click it). It'
 
 ### puppyCMS is a framework for creating sites with great SEO built in?
 
-puppyCMS is a 'sort of framework' for building new, mega-SEO-friendly sites from scratch with very little to do other than write and create pages of content. If you edit the config.php file in the root directory, then you can add lots of magic, again with very little work - things like content sliders, parallax scrolling images, web stats, icons, automatic linking of texts, social media icons, and even a web form - all without any coding - and all teeny, tiny things that ensure the pages on your puppy site load really fast indeed.
+puppyCMS is a 'sort of framework' for building new, mega-SEO-friendly sites from scratch with very little to do other than write and create pages of content. If you edit the config.php file in the root directory, then you can add lots of magic, again with very little work - things like content sliders, parallax scrolling images, web stats, icons, automatic linking of texts, social media icons, and even a web form - all without ~~any~~ much coding - and all teeny, tiny things that ensure the pages on your puppy site load really fast indeed.
+
+> This is a blockquote
 
 ### Embedding stuff
 

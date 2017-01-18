@@ -1,0 +1,445 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Merriweather:900|Montserrat|Montserrat+Alternates';
+
+ /* make sure this matches a Google font above - e.g. 'Open+Sans'  */
+ /* make sure this matches a Google font above - e.g. Merriweather  */
+ /* font size if not using 'better_fonts' option in config */
+ /* font size on large browser screens, so that text is clearly read */
+
+ /* background color across whole site*/
+ /* width of content - can be px or % - e.g 80% or 1000px */
+
+ /* H1...H6 */
+ /* color of text on the site */
+
+ /* text links */
+
+ /* options: none, underline, overline */
+
+
+ /* where site_brand is shown on the menu  */
+
+ /* text color of menu items */
+ /* color of menu items when hovered over */
+ /* the 'hamburger' button that opens up the menu on small screens */
+
+
+ /* for the contact form button */
+
+
+/* end of basic styling */
+
+/* if you want to play with CSS further, edit below */
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: 'Montserrat Alternates';
+		font-size: 1em;
+}
+body,
+p,
+ul,
+ol,
+div {
+    color: #FFFFFF;
+    font-family: 'Montserrat Alternates';
+    text-align: left;
+    background-color: #0375B4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Montserrat Alternates;
+    line-height: 1.2em;
+    color: #FFCE00;
+    text-align: left;
+}
+a {
+    text-decoration: underline;
+    color: #FFCE00;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+a:hover {
+    color: #262228;
+}
+blockquote {
+    font-weight: bold;
+    font-size: 1em;
+    /* 16px */
+    
+    border-left: 0.25em solid #FFCE00;
+    padding: 0 1em 0 1em;
+    /* 0 24px 0 16px */
+}
+/*
+Style images so they resize no matter what the browser size.
+*/
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+/* This is the color of the icons that you may use */
+
+.icon {
+    fill: #FFCE00;
+}
+.yt-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 99%;
+}
+.yt-video iframe,
+.yt-video object,
+.yt-video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 1em;
+}
+
+/* This is for the button on the contact form
+*/
+.puppy-button {
+    background: #FFCE00;
+    color: #0375B4;
+}
+
+/*
+    All anchors inside the menu should be styled like this.
+    */
+
+#menu a {
+    color: #0375B4;
+    border: none;
+    padding: 0.6em 0 0.6em 0.6em;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+/*
+This is the main content area of the site.
+*/
+
+.pure-g {
+    margin: 0 auto;
+    padding: 0 2em;
+    max-width: 1000px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    line-height: 1.6em;
+}
+/*
+EVERYTHING below controls the menu CSS
+*/
+/*
+Add transition to containers so they can push in and out.
+*/
+
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+
+#layout {
+    /* position: relative;
+     padding-left: 0; */
+}
+.left-sidebar #layout.active #menu {
+    left: 250px;
+    width: 250px;
+}
+.left-sidebar #layout.active .menu-link {
+    left: 250px;
+}
+.right-sidebar #layout.active #menu {
+    right: 250px;
+    width: 250px;
+}
+.right-sidebar #layout.active .menu-link {
+    right: 250px;
+}
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
+appears on the left side of the page.
+*/
+
+#menu {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    /* so the menu or its navicon stays above all content */
+    
+    background: #FFCE00;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.left-sidebar #menu {
+    left: 0;
+    margin-left: -250px;
+    /* "#menu" width */
+}
+.right-sidebar #menu {
+    right: 0;
+    margin-right: -250px;
+    /* "#menu" width */
+}
+/*
+    Remove all background/borders, since we are applying them to #menu.
+    */
+
+#menu .pure-menu,
+#menu .pure-menu ul {
+    border: none;
+    background: transparent;
+}
+/*
+    Add that light border to separate items into groups.
+    */
+
+#menu .pure-menu ul,
+#menu .pure-menu .menu-item-divided {
+    border-top: 1px solid #0375B4;
+}
+/*
+        Change color of the anchor links on hover/focus.
+        */
+
+#menu .pure-menu li a:hover,
+#menu .pure-menu li a:focus {
+    background-color: #FFFFFF;
+}
+/*
+    This styles the selected menu item `<li>` NOT USED.
+    */
+
+#menu .pure-menu-selected,
+#menu .pure-menu-heading {
+    background: #FFFFFF;
+}
+/*
+        This styles a link within a selected menu item `<li>`.
+        */
+
+#menu .pure-menu-selected a {
+    color: #0375B4;
+}
+/*
+    This styles the menu heading.
+    */
+
+#menu .pure-menu-heading {
+    font-size: 110%;
+    color: #0375B4;
+    margin: 0;
+}
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+/*
+The button to open/close the Menu is custom-made and not part of Pure. Here's
+how it works:
+*/
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+*/
+
+.menu-link {
+    position: fixed;
+    display: block;
+    /* show this only on small screens */
+    
+    top: 0;
+    /*left: 0; */
+    /* "#menu width" */
+    
+    background: #262228;
+    font-size: 10px;
+    /* change this value to increase/decrease button size */
+    
+    z-index: 10;
+    width: 2em;
+    height: auto;
+    padding: 2.1em 1.6em;
+}
+.left-sidebar .menu-link {
+    left: 0;
+}
+.right-sidebar .menu-link {
+    right: 0;
+}
+.menu-link:hover,
+.menu-link:focus {
+    background: #007849;
+}
+.menu-link span {
+    position: relative;
+    display: block;
+}
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+    background-color: #fff;
+    width: 100%;
+    height: 0.2em;
+}
+.menu-link span:before,
+.menu-link span:after {
+    position: absolute;
+    margin-top: -0.6em;
+    content: " ";
+}
+.menu-link span:after {
+    margin-top: 0.6em;
+}
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+*/
+
+@media (min-width: 90em) {
+
+p {
+font-size: 1.3em;
+}
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    .left-sidebar #layout {
+        padding-left: 150px;
+        /* left col width "#menu" */
+    }
+    .right-sidebar #layout {
+        padding-right: 150px;
+        /* left col width "#menu" */
+    }
+    .menu-link {
+        position: fixed;
+        display: none;
+    }
+    .left-sidebar #menu {
+        left: 250px;
+    }
+    .right-sidebar #menu {
+        right: 250px;
+    }
+    .left-sidebar .menu-link {
+        left: 250px;
+    }
+    .right-sidebar .menu-link {
+        right: 250px;
+    }
+    .left-sidebar #layout.active .menu-link {
+        left: 250px;
+    }
+    .right-sidebar #layout.active .menu-link {
+        right: 250px;
+    }
+}
+@media (max-width: 100em) {
+    /* Only apply this when the window is small. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small.
+        * Tap the menu to trigger the active state.
+        * Make the window large again.
+    */
+    
+    #layout.active {
+        position: relative;
+    }
+    .left-sidebar #layout.active {
+        left: 250px;
+    }
+    .right-sidebar #layout.active {
+        right: 250px;
+    }
+}
+/*CSS to convert Left-Sidebar into Top Navigation bar if menu is 'top-menu' */
+
+.top-menu #menu {
+    margin-left: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    bottom: auto;
+}
+.top-menu .pure-menu:after {
+    clear: both;
+    content: " ";
+    height: 0;
+    display: block;
+    position: relative;
+}
+.top-menu .pure-menu-heading {
+    float: left;
+}
+.top-menu .pure-menu-list {
+    float: right;
+    border: 0 !important;
+}
+.top-menu #menu a {
+    padding: 0.6em;
+}
+.top-menu #menu .pure-menu-item {
+    float: left;
+}
+.top-menu #menu .pure-menu-item a {
+    padding: 0.658em 0.6em;
+}
+.top-menu .menu-link {
+    top: 5px;
+    right: 15px;
+    display: none;
+}
+.top-menu #layout.active #menu {
+    left: 0;
+    width: auto;
+}
+.top-menu #layout.active .menu-link {} @media (max-width: 1024px) {
+    .top-menu #layout.active {} .top-menu .menu-link {
+        z-index: 9999;
+        display: block;
+    }
+    .top-menu #menu {} .top-menu .pure-menu-heading {
+        float: none;
+        position: relative;
+        margin-bottom: 5px;
+    }
+    .top-menu .pure-menu-list {
+        float: none;
+        border-top: 1px solid white !important;
+        position: relative;
+        display: none;
+    }
+    .top-menu #menu .pure-menu-item {
+        float: none;
+        position: relative;
+        width: 100%;
+    }
+    .top-menu #layout.active .pure-menu-list {
+        display: block;
+    }
+}
