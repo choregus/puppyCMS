@@ -1,9 +1,6 @@
 *.csv
 extras/stats/data/tally.txt
 content/bak/*
-<<<<<<< HEAD
 *.zip
 *.css
 *.ds
-=======
->>>>>>> origin/master
