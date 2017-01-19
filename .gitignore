@@ -1,5 +1,6 @@
 *.csv
 extras/stats/data/tally.txt
-extras/stats/data/tally.txt
-extras/stats/data/tally.txt
 content/bak/*
+*.zip
+*.css
+*.ds
