@@ -2,7 +2,7 @@
 
 $download_date = date('d-m-Y');
 $the_folder = '../content/';
-$zip_file_name = 'backup-puppyCMS-'.$download_date.'.zip';
+$zip_file_name = '../content/backup-puppyCMS-'.$download_date.'.zip';
 
 
 $download_file= false;
@@ -38,7 +38,7 @@ class FlxZipArchive extends ZipArchive {
 
 $za = new FlxZipArchive;
 $res = $za->open($zip_file_name, ZipArchive::CREATE);
-if($res === TRUE) 
+if($res === TRUE)
 {
     $za->addDir($the_folder, basename($the_folder));
     $za->close();
@@ -59,4 +59,7 @@ if ($download_file)
     readfile($zip_file_name);
 
 }
+
+header( 'Location: ./' ) ;
+
 ?>

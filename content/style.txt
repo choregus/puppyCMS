@@ -1,5 +1,5 @@
 /* SWEDEN */
-@import 'https://fonts.googleapis.com/css?family=Open+Sans|Merriweather:900|Montserrat|Montserrat+Alternates';
+@import 'https://fonts.googleapis.com/css?family=Montserrat+Alternates';
 
 $heading_font = Montserrat+Alternates; /* make sure this matches a Google font above - e.g. 'Open+Sans'  */
 $text_font = 'Montserrat+Alternates'; /* make sure this matches a Google font above - e.g. Merriweather  */
@@ -52,6 +52,7 @@ div {
     text-align: left;
     background-color: $background_color;
 }
+
 h1,
 h2,
 h3,
