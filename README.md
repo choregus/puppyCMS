@@ -27,7 +27,7 @@ See the homepage here: http://puppycms.com/
 * YouTube Short Code (new in version 4.0)
 * AOS Scroll effects (new in version 4.0)
 * edit CSS files in Puppy Editor (new in version 5.0)
-* simple to use variables in CSS, so EXTREMELY fast web design (new in version 5.0)
+* simple to use variables in CSS, so EXTREMELY fast web design - using [Pass](https://github.com/jakerb/Pass) (new in version 5.0)
 * backup of each page edit made (new in version 5.0)
 * now menus can be left, right or on the top of the page (thanks to Zahed Kamal)
 
