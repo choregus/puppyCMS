@@ -68,7 +68,7 @@
 		
 		function addNew() {
 			alertify.set({ buttonFocus: "none" });
-			alertify.prompt("Create a page", function (e, str) {
+			alertify.prompt("Create a page<br/> use lower case text and spaces between words<br/> e.g.'my page name'", function (e, str) {
 			    // str is the input text
 			    if (e) {
 			    	if (str == "") {
@@ -318,11 +318,10 @@ if (is_dir($dir)){
 		?>
 		</tbody>
 		</table>
-    </div>
-
 	<div>
 		puppyFileExplorer by James Welch - <a href="backup.php">Backup files to zip</a> | Go back to <a href="../">your site</a>.
 	</div>
+    </div>
 		
     <?php
   }

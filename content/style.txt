@@ -1,3 +1,4 @@
+/* SWEDEN */
 @import 'https://fonts.googleapis.com/css?family=Open+Sans|Merriweather:900|Montserrat|Montserrat+Alternates';
 
 $heading_font = Montserrat+Alternates; /* make sure this matches a Google font above - e.g. 'Open+Sans'  */
@@ -25,6 +26,9 @@ $menu_button_hover_color = #000;
 
 $button_color = #FFCE00; /* for the contact form button */
 $button_text_color = #0375B4;
+
+$menu_width = 20%; /* width of side menus - can be px or percent - 200-400px or 18-23% is good */
+$menu_padding = 20%; /* width of side menus - can be px or percent - 180-300px or 18-23% is good */
 
 /* end of basic styling */
 
@@ -77,6 +81,11 @@ blockquote {
     padding: 0 1em 0 1em;
     /* 0 24px 0 16px */
 }
+
+textarea, input {
+color:#000;
+}
+
 /*
 Style images so they resize no matter what the browser size.
 */
@@ -124,7 +133,7 @@ img {
     color: $menu_link_color;
     border: none;
     padding: 0.6em 0 0.6em 0.6em;
-    font-size: 1.2em;
+    font-size: $normal_font_size;
     text-decoration: none;
 }
 /*
@@ -164,18 +173,18 @@ This is the parent `<div>` that contains the menu and the content area.
      padding-left: 0; */
 }
 .left-sidebar #layout.active #menu {
-    left: 250px;
-    width: 250px;
+    left: $menu_width;
+    width: $menu_width;
 }
 .left-sidebar #layout.active .menu-link {
-    left: 250px;
+    left: $menu_width;
 }
 .right-sidebar #layout.active #menu {
-    right: 250px;
-    width: 250px;
+    right: $menu_width;
+    width: $menu_width;
 }
 .right-sidebar #layout.active .menu-link {
-    right: 250px;
+    right: $menu_width;
 }
 /*
 The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
@@ -183,7 +192,7 @@ appears on the left side of the page.
 */
 
 #menu {
-    width: 250px;
+    width: $menu_width;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -196,12 +205,12 @@ appears on the left side of the page.
 }
 .left-sidebar #menu {
     left: 0;
-    margin-left: -250px;
+    margin-left: -$menu_width;
     /* "#menu" width */
 }
 .right-sidebar #menu {
     right: 0;
-    margin-right: -250px;
+    margin-right: -$menu_width;
     /* "#menu" width */
 }
 /*
@@ -249,7 +258,7 @@ appears on the left side of the page.
     */
 
 #menu .pure-menu-heading {
-    font-size: 110%;
+    /*font-size: 110%; */
     color: $menu_brand_text_color;
     margin: 0;
 }
@@ -311,14 +320,14 @@ small screens.
 .menu-link span:after {
     margin-top: 0.6em;
 }
-/* -- Responsive Styles (Media Queries) ------------------------------------- */
+/* -- Responsive Styles (Media Queries) -------------------------------------------------------------------------------------------- */
 /*
-Hides the menu at `48em`, but modify this based on your app's needs.
+Hides the menu at `90em`
 */
 
 @media (min-width: 90em) {
 
-p {
+body {
 font-size: $large_screen_font_size;
 }
     .header,
@@ -327,11 +336,11 @@ font-size: $large_screen_font_size;
         padding-right: 2em;
     }
     .left-sidebar #layout {
-        padding-left: 150px;
+        padding-left: $menu_padding;
         /* left col width "#menu" */
     }
     .right-sidebar #layout {
-        padding-right: 150px;
+        padding-right: $menu_padding;
         /* left col width "#menu" */
     }
     .menu-link {
@@ -339,22 +348,22 @@ font-size: $large_screen_font_size;
         display: none;
     }
     .left-sidebar #menu {
-        left: 250px;
+        left: $menu_width;
     }
     .right-sidebar #menu {
-        right: 250px;
+        right: $menu_width;
     }
     .left-sidebar .menu-link {
-        left: 250px;
+        left: $menu_width;
     }
     .right-sidebar .menu-link {
-        right: 250px;
+        right: $menu_width;
     }
     .left-sidebar #layout.active .menu-link {
-        left: 250px;
+        left: $menu_width;
     }
     .right-sidebar #layout.active .menu-link {
-        right: 250px;
+        right: $menu_width;
     }
 }
 @media (max-width: 100em) {
@@ -369,10 +378,10 @@ font-size: $large_screen_font_size;
         position: relative;
     }
     .left-sidebar #layout.active {
-        left: 250px;
+        left: $menu_width;
     }
     .right-sidebar #layout.active {
-        right: 250px;
+        right: $menu_width;
     }
 }
 /*CSS to convert Left-Sidebar into Top Navigation bar if menu is 'top-menu' */
@@ -418,6 +427,8 @@ font-size: $large_screen_font_size;
     left: 0;
     width: auto;
 }
+
+
 .top-menu #layout.active .menu-link {} @media (max-width: 1024px) {
     .top-menu #layout.active {} .top-menu .menu-link {
         z-index: 9999;
@@ -426,7 +437,7 @@ font-size: $large_screen_font_size;
     .top-menu #menu {} .top-menu .pure-menu-heading {
         float: none;
         position: relative;
-        margin-bottom: 5px;
+        margin-bottom: 0px;
     }
     .top-menu .pure-menu-list {
         float: none;
@@ -442,4 +453,6 @@ font-size: $large_screen_font_size;
     .top-menu #layout.active .pure-menu-list {
         display: block;
     }
+
+
 }

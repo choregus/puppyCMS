@@ -177,7 +177,6 @@
 
 	</script>
 	<script src="extras/ui.js"></script>
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 		<?php
@@ -192,7 +191,7 @@
 		<?php
 			}
 
-			if ($better_fonts == 1) { # recommended to turn it on in config.php
+			if ($better_fonts == 1) {
 		?>
 				$('.pure-g').flowtype({
 					minimum   : 299,
@@ -212,7 +211,6 @@
 			AOS.init();
 		});
 	</script>
-	<?php # the line below is required for the menu system, parallax and better fonts - all other js code should be loaded into this file. ?>
 	<?php
 		# record web stats if it has been selected in config file.
 		if ($web_stats == 1) {
