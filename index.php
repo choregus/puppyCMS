@@ -23,6 +23,7 @@
 		}
 	?>
 	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
 	<link rel="stylesheet" href="<?=$pass->name;?>">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<?php
@@ -49,7 +50,7 @@
 				$col_style = "";
 			}
 		?>
-		<div class="<?php echo "pure-u-1 pure-u-md-1-1"; ?>" style="<?php echo $col_style; ?>">
+		<div class="<?php echo "pure-u-1 pure-u-md-1-1"; ?>" style="<?php echo $col_style; ?>" >
 			<?php
 				# show the slideshow if its been set in config
 				if ($show_slider == 1 && $_SERVER['REQUEST_URI'] == $site_root) {
@@ -218,5 +219,6 @@
 		}
 	?>
 	<!-- built with puppyCMS version <?php echo $puppy_version; ?> -->
+	
 </body>
 </html>

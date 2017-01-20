@@ -12,7 +12,7 @@ $site_root = "/"; # the folder in which you install puppyCMS. If its at the root
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
 
-$menu = 'top-menu'; # 3 options left-sidebar or right-sidebar or top-menu (top menu useful for sites with < 6 pages for now)
+$menu = 'right-sidebar'; # 3 options left-sidebar or right-sidebar or top-menu (top menu useful for sites with < 6 pages for now)
 $blog_mode = 0; # if set to 1, then pages are shown in menu in reverse time order. 0 lists pages alphabetically.
 $show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
 $show_edit = 0; # if set to 1, then show Admin link in menu.

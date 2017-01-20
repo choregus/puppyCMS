@@ -4,3 +4,6 @@ content/bak/*
 *.zip
 *.css
 *.ds
+extras/erss.php
+content/rss-cache
+plugins/*
