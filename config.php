@@ -21,8 +21,6 @@ $evil_icons = 1; # ability to use evil icons (evil-icons.io) for nice looking ic
 $scroll_anim = 0; #if this is set then you can create scroll effects on divs, paragraphs, images etc by using ASO (http://michalsnik.github.io/aos/).
 # Example code: <div data-aos="flip-up" data-aos-duration="3000" data-aos-offset="300">Blah blah blah.</div>
 
-$web_stats = 0; # if set to 1, then web visitors will be recorded. You can view stats in yoursite.com/extras/stats
-
 # parallax scrolling?
 $parallax = 0; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
 # example <p class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="path/to/image.jpg" style="min-height:200px;" >Some content here if you like.</p>
