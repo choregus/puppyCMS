@@ -1,8 +1,9 @@
 <?php
 	include('config.php');
-	include('extras/parsedown.php');
-	include('extras/parsedownextra.php');
-	require 'extras/pass.php';
+	include('extras/parsedown.php'); #convert markdown to pure HTML
+	include('extras/parsedownextra.php'); #extra functions for parsedown
+	include('extras/puppystats.php'); #PuppyStats
+	require 'extras/pass.php'; #
 	$pass = new pass('content/style.txt');
 ?>
 <!DOCTYPE html>
@@ -212,12 +213,6 @@
 			AOS.init();
 		});
 	</script>
-	<?php
-		# record web stats if it has been selected in config file.
-		if ($web_stats == 1) {
-			include('extras/stats/stl.php');
-		}
-	?>
 	<!-- built with puppyCMS version <?php echo $puppy_version; ?> -->
 	
 </body>
