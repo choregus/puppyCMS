@@ -8,3 +8,4 @@ extras/erss.php
 content/rss-cache
 plugins/*
 extras/visitors.html
+extras/visitors.php

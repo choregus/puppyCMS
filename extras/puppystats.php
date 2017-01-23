@@ -2,7 +2,7 @@
 
 #PuppyStats - a very simple web statistics tool built for PuppyCRM, based on microLogger.
     define("DATE_FORMAT","d-m-Y H:i");
-    define("LOG_FILE","extras/visitors.html");
+    define("LOG_FILE","extras/visitors.php");
 
 $logfileHeader='
 <!DOCTYPE html>
