@@ -23,8 +23,8 @@
 					'<script src="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.js"></script>';
 		}
 	?>
-	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css">
-	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
 	<link rel="stylesheet" href="<?=$pass->name;?>">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<?php
