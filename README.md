@@ -9,6 +9,7 @@ See the homepage here: http://puppycms.com/
 
 ## Features
 
+* NEW in 5.1 - templating system - PuppyCMS is now even easier to develop further by using templating system (see /extras/tpl/ folder)
 * Flat file
 * Tiny (really tiny) code
 * Takes a few seconds to install and configure
@@ -30,10 +31,8 @@ See the homepage here: http://puppycms.com/
 * simple to use variables in CSS, so EXTREMELY fast web design - using [Pass](https://github.com/jakerb/Pass) (new in version 5.0)
 * backup of each page edit made (new in version 5.0)
 * now menus can be left, right or on the top of the page (thanks to Zahed Kamal)
-* Introduction of PuppyStats - a very simple way to track web visitors - visit yoursite.com/extras/visitors.html to see web visitor data.
+* Introduction of PuppyStats - a very simple way to track web visitors - visit yoursite.com/extras/visitors.php to see web visitor data.
 
 If you want to make simple static content sites in very quick time, then puppyCMS is the CMS for you. It is perfect for creating hobby sites, or micro sites, and with the templates included, you can produce very smart, content-rich sites in no time.
 
-puppyCMS also uses the excellent [Responsive Slides](https://github.com/viljamis/ResponsiveSlides.js) slider for additional functionality if required.
-
-Puppy version 5.0, the latest release, is now only ~60k in size (although I'm constantly looking to make this smaller, but does the same job as other CMS systems that are **at least 10** times the size.
+Puppy version 5.1, the latest release, is now under 60k in size (although I'm constantly looking to make this smaller, but does the same job as other CMS systems that are **at least** 10 times the size.

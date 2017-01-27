@@ -9,6 +9,8 @@ $site_brand = "Puppy"; # Short text that goes above the menu - or you can use 'M
 
 $site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
+$site_template = "puppy.tpl"; #don't change this. in future versions, it can be changed
+
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
 
@@ -17,14 +19,9 @@ $blog_mode = 0; # if set to 1, then pages are shown in menu in reverse time orde
 $show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
 $show_edit = 0; # if set to 1, then show Admin link in menu.
 $better_fonts = 0; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :)
-$evil_icons = 1; # ability to use evil icons (evil-icons.io) for nice looking icons  - e.g. <div data-icon="ei-chart" data-size="s"></div>
+$evil_icons = 0; # ability to use evil icons (evil-icons.io) for nice looking icons  - e.g. <div data-icon="ei-chart" data-size="s"></div>
 $scroll_anim = 0; #if this is set then you can create scroll effects on divs, paragraphs, images etc by using ASO (http://michalsnik.github.io/aos/).
 # Example code: <div data-aos="flip-up" data-aos-duration="3000" data-aos-offset="300">Blah blah blah.</div>
-
-# parallax scrolling?
-$parallax = 0; #if set to 1, then you can add code into documents that will create parallax scrolling effects.
-# example <p class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="path/to/image.jpg" style="min-height:200px;" >Some content here if you like.</p>
-# see more at: http://pixelcog.github.io/parallax.js/
 
 $show_slider = 0; # if set to 1, then show content slider on home page.
 # if you do want to show a slider on the home page, put content (such as an image url, or a paragraph of text) in each $slide(x) variable. Max 5. Images must all be the same size.
@@ -44,8 +41,6 @@ $link_text=array(
 
 #####################################################################################
 ### the stuff below is more geeky stuff, so only play with it if you know what you're doing!
-
-$columns = null; //to stop errors on some php servers
 
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
 
@@ -90,6 +85,7 @@ if(file_exists($file)) {
 	$first_line = fgets(fopen($file, 'r'));
 }
 
+$meta_desc = NULL; #register the variable
 
 //if the file has the optional instructions heading line, then do stuff, else show the page as normal
 if ( strpos($first_line, '|') !== false) {
@@ -105,14 +101,10 @@ if ( strpos($first_line, '|') !== false) {
 	//create a meta description tag if its there
 	if ($display[2] != "") {
 		$meta_desc = '<meta name="description" content="'.$display[2].'">';
-	}
+		
+	} else {$meta_desc = " ";}
 
-	// if columns are requested, then show them
-	if ($display[3] != "") {
-		$columns = $display[3];
-	}
 
-	
 	// get the contents of the file
 	if(file_exists($file)) {
 		$content = file_get_contents($file);
@@ -144,5 +136,5 @@ function str_replace_first($from, $to, $subject) {
 
 # this is where I'm hiding :-)
 $puppy_link = 1; # if set to 1 then show link to puppy site.
-$puppy_version = "5.0";
+$puppy_version = "5.1";
 ?>
