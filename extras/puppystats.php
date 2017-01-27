@@ -80,11 +80,6 @@ table
 	</script>
 
 <h1>Unique Visitors</h2>
-<ul>
-<li class="btn"><a href="#" class="all">All</a></li>
-<li class="btn"><a href="#">'.date("d-m-Y").'</a></li>
-<li class="btn"><a href="#">'.date("d-m-Y", time() - 60 * 60 * 24).'</a></li>
-</ul>
 <br/><br/>
 <div style="clear:both;"></div>
   <table class="display compact" cellspacing="1" id="visitors">
@@ -98,6 +93,7 @@ table
     $hostName   = gethostbyaddr($userIp);
     $actualTime = date(DATE_FORMAT);
     $userAgent  = substr($userAgent,0,60)."..."; #truncate this as is not that important
+    $uri  = substr($uri,0,60)."..."; #truncate this as is not that important
     
 #create a log entry to write the latest user's info to the end of the file
     $logEntry = "     <tr><td>$actualTime</td><td>[ $userIp ]</td><td>$userAgent</td><td>$uri</td><td>$refferer</td></tr>\n";
