@@ -1,4 +1,4 @@
-# puppyCMS version 5.0
+# puppyCMS version 5.1
 pupyCMS is a very simple, flat file CMS that is SEO friendly and responsive - built in PHP (minimum requirements are PHP 5). It takes a few seconds to configure (just one config file). It works on all major browsers including mobile versions. It is absolutely mobile first.
 
 The biggest difference between puppyCMS and other flat file, responsive content management platforms is that its **very** small, takes seconds to start. It uses purecss.io and parsedown.org to produce wonderfully lightweight web pages. You use markdown to write the content and it outputs in bloat-free, fast, html.
