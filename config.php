@@ -9,17 +9,17 @@ $site_brand = "Puppy"; # Short text that goes above the menu - or you can use 'M
 
 $site_root = "/"; # the folder in which you install puppyCMS. If its at the root of a domain, then simply put '/'. For any other folder, please use trailing slash.
 
-$site_template = "puppy.tpl"; #don't change this. in future versions, it can be changed
+$site_template = "puppy.tpl"; #option of puppy.tpl or bootstrap.tpl - in future versions, it can be changed per page
 
 # email for forms - this is the email your enquiries will go to.
 $form_email = "your@email.com";
 
-$menu = 'right-sidebar'; # 3 options left-sidebar or right-sidebar or top-menu (top menu useful for sites with < 6 pages for now)
+$menu = 'left-sidebar'; # 3 options left-sidebar or right-sidebar or top-menu (this is for puppy.tpl template only)
 $blog_mode = 0; # if set to 1, then pages are shown in menu in reverse time order. 0 lists pages alphabetically.
 $show_social = 0; # if set to 1, then show social share buttons in side bar (at the bottom if using hamburger menu).
 $show_edit = 0; # if set to 1, then show Admin link in menu.
 $better_fonts = 0; # if set to 1, then better-sized fonts will be used depending on the display the site is seen on. makes things more readable. WORTH TRYING :)
-$evil_icons = 0; # ability to use evil icons (evil-icons.io) for nice looking icons  - e.g. <div data-icon="ei-chart" data-size="s"></div>
+$evil_icons = 1; # ability to use evil icons (evil-icons.io) for nice looking icons  - e.g. <div data-icon="ei-chart" data-size="s"></div>
 $scroll_anim = 0; #if this is set then you can create scroll effects on divs, paragraphs, images etc by using ASO (http://michalsnik.github.io/aos/).
 # Example code: <div data-aos="flip-up" data-aos-duration="3000" data-aos-offset="300">Blah blah blah.</div>
 

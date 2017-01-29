@@ -1,31 +1,31 @@
-/* SWEDEN */
-@import 'https://fonts.googleapis.com/css?family=Montserrat+Alternates';
+/* PUPPY */
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Merriweather:900';
 
-$heading_font = Montserrat+Alternates; /* make sure this matches a Google font above - e.g. 'Open+Sans'  */
-$text_font = 'Montserrat+Alternates'; /* make sure this matches a Google font above - e.g. Merriweather  */
+$heading_font = Merriweather; /* make sure this matches a Google font above - e.g. 'Open+Sans'  */
+$text_font = 'Open+Sans'; /* make sure this matches a Google font above - e.g. Merriweather  */
 $normal_font_size = 1em; /* font size if not using 'better_fonts' option in config */
-$large_screen_font_size = 1.3em; /* font size on large browser screens, so that text is clearly read */
+$large_screen_font_size = larger; /*  can be em, px or larger etc - main content font size when menu is shown on screen  */
 
-$background_color = #0375B4; /* background color across whole site*/
-$content_width = 1000px; /* maximum width of content - can be px or % - e.g 80% or 1000px */
+$background_color = #fff; /* background color across whole site*/
+$content_width = 800px; /* maximum width of content - can be px or % - e.g 80% or 1000px */
 
-$heading_color = #FFCE00; /* H1...H6 */
-$text_color = #FFFFFF; /* color of text on the site */
+$heading_color = #269ccc; /* H1...H6 */
+$text_color = #7b7b7b; /* color of text on the site */
 
-$link_color = #FFCE00; /* text links */
-$link_hover_color = #262228;
-$link_decoration = underline; /* options: none, underline, overline */
+$link_color = #269ccc; /* text links */
+$link_hover_color = #9ed2c5;
+$link_decoration = none; /* options: none, underline, overline */
 
-$menu_background_color = #FFCE00;
-$menu_brand_color = #FFFFFF; /* where site_brand is shown on the menu  */
-$menu_brand_text_color = #0375B4;
-$menu_link_color = #0375B4; /* text color of menu items */
-$menu_hover_color = #FFFFFF; /* color of menu items when hovered over */
-$menu_button_color = #FFCE00; /* the 'hamburger' button that opens up the menu on small screens */
-$menu_button_hover_color = #000;
+$menu_background_color = #7b7b7b;
+$menu_brand_color = #9ed2c5; /* where site_brand is shown on the menu  */
+$menu_brand_text_color = #fff;
+$menu_link_color = #fff; /* text color of menu items */
+$menu_hover_color = #9ed2c5; /* color of menu items when hovered over */
+$menu_button_color = #7b7b7b; /* the 'hamburger' button that opens up the menu on small screens */
+$menu_button_hover_color = #9ed2c5;
 
-$button_color = #FFCE00; /* for the contact form button */
-$button_text_color = #0375B4;
+$button_color = #9ed2c5; /* for the contact form button */
+$button_text_color = #fff;
 
 $menu_width = 20%; /* width of side menus - can be px or percent - 200-400px or 18-23% is good */
 $menu_padding = 20%; /* width of side menus - can be px or percent - 180-300px or 18-23% is good */
@@ -454,6 +454,35 @@ font-size: $large_screen_font_size;
     .top-menu #layout.active .pure-menu-list {
         display: block;
     }
+}
 
+/* bootstrap tweaks*/
 
+.navbar-inverse {
+  background-color: $background_color;
+	}
+	
+	.navbar-inverse .navbar-text {
+  color: $link_color;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: $link_color;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: $link_hover_color;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-brand {
+  color: $link_color;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: $link_hover_color;
+  background-color: transparent;
+}
+
+.navbar-toggle {
+background-color: $text_color;
 }
