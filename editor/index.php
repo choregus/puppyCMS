@@ -319,7 +319,11 @@ if (is_dir($dir)){
 		</tbody>
 		</table>
 	<div>
-		puppyFileExplorer by James Welch - <a href="backup.php">Backup files to zip</a> (zip archive will appear in list above) | List of <a href="../content/bak">Previous File Edits</a> | Go back to <a href="../">your site</a>.
+		puppyFileExplorer by James Welch <?php
+		
+		if (class_exists('ZipArchive')) {
+		
+		?> - <a href="backup.php">Backup files to zip</a> (zip archive will appear in list above)<?php } ?> | List of <a href="../content/bak">Previous File Edits</a> | Go back to <a href="../">your site</a>.
 	</div>
     </div>
 		

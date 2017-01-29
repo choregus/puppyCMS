@@ -1,33 +1,33 @@
-/* PUPPY */
-@import 'https://fonts.googleapis.com/css?family=Open+Sans|Merriweather:900';
+/* GOOGLE */
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
-$heading_font = Merriweather; /* make sure this matches a Google font above - e.g. 'Open+Sans'  */
-$text_font = 'Open+Sans'; /* make sure this matches a Google font above - e.g. Merriweather  */
+$heading_font = Open+Sans; /* make sure this matches a Google font above - e.g. 'Open+Sans'  */
+$text_font = Open+Sans; /* make sure this matches a Google font above - e.g. Merriweather  */
 $normal_font_size = 1em; /* font size if not using 'better_fonts' option in config */
-$large_screen_font_size = larger; /*  can be em, px or larger etc - main content font size when menu is shown on screen  */
+$large_screen_font_size = 1.3em; /* font size on large browser screens, so that text is clearly read */
 
-$background_color = #fff; /* background color across whole site*/
-$content_width = 800px; /* maximum width of content - can be px or % - e.g 80% or 1000px */
+$background_color = #ffffff; /* background color across whole site*/
+$content_width = 1000px; /* maximum width of content - can be px or % - e.g 80% or 1000px */
 
-$heading_color = #269ccc; /* H1...H6 */
-$text_color = #7b7b7b; /* color of text on the site */
+$heading_color = #0057e7; /* H1...H6 */
+$text_color = #008744; /* color of text on the site */
 
-$link_color = #269ccc; /* text links */
-$link_hover_color = #9ed2c5;
-$link_decoration = none; /* options: none, underline, overline */
+$link_color = #d62d20; /* text links */
+$link_hover_color = #ffa700;
+$link_decoration = underline; /* options: none, underline, overline */
 
-$menu_background_color = #7b7b7b;
-$menu_brand_color = #9ed2c5; /* where site_brand is shown on the menu  */
-$menu_brand_text_color = #fff;
-$menu_link_color = #fff; /* text color of menu items */
-$menu_hover_color = #9ed2c5; /* color of menu items when hovered over */
-$menu_button_color = #7b7b7b; /* the 'hamburger' button that opens up the menu on small screens */
-$menu_button_hover_color = #9ed2c5;
+$menu_background_color = #d62d20;
+$menu_brand_color = #0057e7; /* where site_brand is shown on the menu  */
+$menu_brand_text_color = #ffffff;
+$menu_link_color = #ffffff; /* text color of menu items */
+$menu_hover_color = #ffa700; /* color of menu items when hovered over */
+$menu_button_color = #ffa700; /* the 'hamburger' button that opens up the menu on small screens */
+$menu_button_hover_color = #d62d20;
 
-$button_color = #9ed2c5; /* for the contact form button */
-$button_text_color = #fff;
+$button_color = #0057e7; /* for the contact form button */
+$button_text_color = #ffffff;
 
-$menu_width = 20%; /* width of side menus - can be px or percent - 200-400px or 18-23% is good */
+$menu_width = 250px; /* width of side menus - can be px or percent - 200-400px or 18-23% is good */
 $menu_padding = 20%; /* width of side menus - can be px or percent - 180-300px or 18-23% is good */
 
 /* end of basic styling */

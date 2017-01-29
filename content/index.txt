@@ -1,7 +1,7 @@
 |This is the title of the page which you should really change - this appears in Google listings|This is the meta description of your new page which appears your listing on Google.|
 # This is my homepage
 
-This is the all-new version of [PuppyCMS](http://puppycms.com) that now has extra cool things included such as [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/) (a way to make writing content easy, whilst being powerful and extremely lean for SEO purposes) and [evil icons](http://evil-icons.io/), a set of icons to use within the site to make your puppy experience even more fancy.
+This is the all-new version of [PuppyCMS](http://puppycms.com) that now has extra cool things included such as [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/) (a way to make writing content easy, whilst being powerful and extremely lean for SEO purposes) and [evil icons](http://evil-icons.io/), a set of icons to use within the site to make your puppy experience even more fancy. 
 
 You can do fancy things like make footnotes like this one -> [^1](click it). It's cool, ain't it?
 

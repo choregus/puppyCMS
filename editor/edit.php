@@ -103,9 +103,6 @@ $fileN = file_get_contents($path);
 	</form>
 </div>
 
-<div class="footer">
-	puppyFileExplorer by James Welch - <a href="backup.php">Backup files to zip</a> | Go back to <a href="../">your site</a>.
-</div>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
