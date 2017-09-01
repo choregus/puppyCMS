@@ -1,1 +1,0 @@
-This directory stores backups each time you edit a file, so that in an emergency, you can always go and find the content you needed.
