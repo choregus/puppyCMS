@@ -1,0 +1,194 @@
+/* GOOGLE */
+@import 'https://fonts.googleapis.com/css?family=Quicksand';
+$default_font = Quicksand;
+$default_font_color = #111;
+$default_font_size = 16px;
+
+$primary_color = #000; /*Bootstrap's primary color*/
+$secondary_color = #616161; /*Bootstrap's primary color*/
+
+
+/*-----------------*/
+/* Navbar variables */
+/*-----------------*/
+$ham_border_color = #fff;
+$ham_hover_bg_color = #fff;
+$ham_hover_border_color = #000; 
+$navbar_bg_color = #000; 
+$navbar_text_color = #fff; 
+
+$navbar_link_color = #fff;
+$navbar_link_hover_color = #000;
+$navbar_link_hover_bg_color = #fff;
+
+$navbar_brand_color = #fff;
+
+$navbar_subnav_bg_color = #000;
+$navbar_subnav_link_color = #fff;
+
+/*-----------------*/
+/* Footer variables */
+/*-----------------*/
+$footer_bg_color = #eee;
+$footer_font_size = 80%;
+
+html, body{
+    font-family: $default_font;
+    color: $default_font_color;
+    font-size: $default_font_size;
+}
+
+h1,h2,h3,h4 {
+	font-weight:bold;
+    color:$primary_color;
+}
+
+a {
+	font-weight:bold;
+    color:$primary_color;
+    
+}
+
+a:hover {
+color:$secondary_color;
+}
+
+body{
+    padding-top: 53px;
+}
+
+img{
+    max-width: 100%;
+}
+
+/*Navbar navigation*/
+.navbar-default{
+    background-color: $navbar_bg_color;
+    color: $navbar_text_color;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    margin-bottom: 0;
+}
+    .navbar > .container .navbar-brand,
+    .navbar > .container-fluid .navbar-brand,
+    .navbar-default .navbar-brand:focus, 
+    .navbar-default .navbar-brand:hover{
+        color: $navbar_brand_color;
+    }
+
+    .navbar-default .navbar-toggle{
+        border-color: $ham_border_color;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar{
+        background-color: $ham_border_color;
+    }
+
+        .navbar-default .navbar-toggle:focus, 
+        .navbar-default .navbar-toggle:hover{
+            background-color: $ham_hover_bg_color;
+            border-color: $ham_hover_border_color;
+        }
+
+        .navbar-default .navbar-toggle:focus .icon-bar, 
+        .navbar-default .navbar-toggle:hover .icon-bar{
+            background-color: $ham_hover_border_color;
+        }
+
+    .navbar-default .navbar-nav > li a{
+        color: $navbar_link_color;
+    }
+
+    .gly-caret{
+        font-size: 50%;
+    }
+
+    .navbar-default .navbar-nav > li > a > .gly-caret{
+        margin-left: 10px;
+    }
+
+    .navbar-default .navbar-nav > li a:focus,
+    .navbar-default .navbar-nav > li a:hover{
+        color: $navbar_link_hover_color;
+        background-color: $navbar_link_hover_bg_color;
+    }
+
+    .navbar-nav li:hover > .navbar-nav-sub{
+        display: block;
+    }
+
+    .navbar-nav-sub{
+        z-index: 100;
+        display: none;
+        position: absolute;
+        background-color: $navbar_subnav_bg_color;
+        padding: 0;
+        list-style: none;
+        margin: 0;
+    }
+
+        .navbar-nav-sub li{
+            position: relative;
+        }
+
+            .navbar-nav-sub li a{
+                display: block;
+                padding: 8px 15px;
+                white-space: nowrap;
+                color: $navbar_subnav_link_color;
+                overflow:hidden;
+                text-overflow: "...";
+                text-decoration: none;
+            }
+
+            .navbar-nav-sub li > a .gly-caret{
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translatey(-50%) rotate(90deg);
+                -webkit-transform: translatey(-50%) rotate(90deg);
+            }
+
+    @media(min-width: 768px){
+        .navbar-nav-sub{
+            position: absolute;
+            top: 100%;
+            right: 100%;
+            min-width: 200px;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+        }
+        .navbar-nav > li:hover > .navbar-nav-sub{
+            right: 0;
+        }
+
+        .navbar-nav > li li:hover > .navbar-nav-sub{
+            top: 0;
+        }
+    }
+
+    @media(max-width: 767px){
+        .navbar-nav-sub{
+            position: relative;
+            margin-left: 15px;
+        }
+
+        .navbar-nav .gly-caret{
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translatey(-50%) !important;
+            -webkit-transform: translatey(-50%) !important;
+        }
+    }
+
+
+/*Footer*/
+footer,
+.footer{
+    background-color: $footer_bg_color;
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: $footer_font_size;
+}
