@@ -50,7 +50,7 @@ if($request_url != $script_url) $url = trim(preg_replace('/'. str_replace('/', '
 
 // Get the file path
 if($url) {
-	$file = strtolower(CONTENT_DIR . $url);
+	$file = CONTENT_DIR . strtolower($url);
 } else {
 	$file = CONTENT_DIR .'index';
 }
